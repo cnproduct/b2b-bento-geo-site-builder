@@ -4,7 +4,7 @@ Jinjiang Naike Gifts Co., Ltd. / Naike Tableware
 Custom Bento Factory (custombentofactory.com)
 B2B RFQ & Sourcing Inquiry Ingestion Server
 Port: 8012
-Target Routing Emails: info@naiketableware.com, cnproduct@gmail.com
+Target Routing Emails: info@naikegroup.com, cnproduct@gmail.com
 """
 
 import http.server
@@ -26,7 +26,7 @@ DATA_DIR = os.path.join(BASE_DIR, 'data')
 JSON_FILE = os.path.join(DATA_DIR, 'inquiries.json')
 CSV_FILE = os.path.join(DATA_DIR, 'inquiries.csv')
 ADMIN_KEY = 'naike2026admin'
-FORWARD_EMAILS = ['info@naiketableware.com', 'cnproduct@gmail.com']
+FORWARD_EMAILS = ['info@naikegroup.com', 'cnproduct@gmail.com']
 CAPTCHA_SECRET = secrets.token_hex(16)
 
 os.makedirs(DATA_DIR, exist_ok=True)
@@ -52,7 +52,14 @@ def verify_captcha(answer, token):
 
 class RFQHandler(http.server.BaseHTTPRequestHandler):
     def log_message(self, format, *args):
-        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {args[0]} {args[1]} -> {args[2]}")
+        try:
+            msg = format % args
+        except Exception:
+            msg = " ".join(str(a) for a in args)
+        print(f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] {self.address_string()} {msg}")
+
+    def do_HEAD(self):
+        self._set_cors_headers(200, 'application/json')
 
     def _set_cors_headers(self, status=200, content_type='application/json'):
         self.send_response(status)
@@ -352,6 +359,7 @@ class RFQHandler(http.server.BaseHTTPRequestHandler):
 
 def run_server():
     server_address = ('127.0.0.1', PORT)
+    socketserver.TCPServer.allow_reuse_address = True
     httpd = socketserver.TCPServer(server_address, RFQHandler)
     print(f"🚀 Custom Bento Factory RFQ Service listening on http://127.0.0.1:{PORT}")
     print(f"   Forwarding Targets: {FORWARD_EMAILS}")

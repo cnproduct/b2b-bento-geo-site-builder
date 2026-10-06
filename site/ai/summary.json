@@ -15,6 +15,14 @@
     "postalCode": "362268",
     "addressCountry": "CN"
   },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+86 135 9922 0505",
+    "contactType": "customer service",
+    "email": "info@naikegroup.com",
+    "areaServed": ["US", "CA", "EU", "GB", "AU", "Global"],
+    "availableLanguage": ["English", "Chinese"]
+  },
   "geo": {
     "@type": "GeoCoordinates",
     "latitude": 24.7891,

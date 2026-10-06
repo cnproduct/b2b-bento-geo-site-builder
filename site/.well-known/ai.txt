@@ -14,6 +14,6 @@ FAQ-Endpoint: https://www.custombentofactory.com/ai/faq.json
 Vendor-Comparison: https://www.custombentofactory.com/ai/vendor-comparison.json
 LLMs-Specification: https://www.custombentofactory.com/llms.txt
 Sitemap: https://www.custombentofactory.com/sitemap.xml
-Contact: sales@custombentofactory.com
+Contact: info@naikegroup.com
 Contact-Phone: +86 135 9922 0505
 Contact-WhatsApp: +86 135 9922 0505
