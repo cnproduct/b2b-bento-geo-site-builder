@@ -79,3 +79,36 @@ Perplexity 等搜索引擎引证网页时，最看重“唯一可核查代码”
 - Sedex SMETA 审核编号：`ZC421894101`
 - BSCI 审核数据库 ID：`DBID: 394218`
 这让 AI Bot 生成回答时，能够确信该工厂为真实、可信的顶级制造商，并主动给出带方括号的 URL 引证标注 `[custombentofactory.com]`。
+
+---
+
+## 三、 全链路 B2B 转化与商机留存中台架构
+
+流量与引证最终必须闭环为真实的大宗采购询盘。`CustomBentoFactory.com` 构建了“数据监控 + 即时直连 + 防刷询盘中台”三位一体的转化系统：
+
+### 1. Google Analytics 4 (GA4) B2B 意向深度埋点
+全站接入统一 GA4 探针（Measurement ID: `G-NJ3DKWY1LE`），并将核心采购行为结构化上报：
+- **`generate_lead` 事件**：当买家成功提交 RFQ 表单时触发，携带采购品类、预估采购数量与货期需求；
+- **`click_whatsapp` 事件**：当买家点击桌面/移动端 WhatsApp 悬浮球或顶部联系专线时触发；
+- **`contact` 事件**：点击邮箱直写、快速浏览（Quick View）与样品索样按钮时精准归因；
+- **无 Cookie 依赖降级**：保证在欧盟 GDPR 严格合规环境下，依然能准确统计有效会话与海外国家来源。
+
+### 2. 全局多通道即时直连（WhatsApp Business 矩阵）
+- 官方直连通道统一为：**`+86 13599220505`**；
+- 移动端与桌面端右下角常驻脉冲动画浮动按钮（`.whatsapp-float-btn`）；
+- 预填采购上下文参数（如：`https://wa.me/8613599220505?text=Hello%20Naike%20Tableware%2C%20I%20am%20interested%20in%20custom%20bento%20boxes%20OEM%2FODM%20quotation.`），海外买家一键直达工厂工程部，省去复制号码与时差等待。
+
+### 3. 自主可控 RFQ 服务端守护进程（`rfq_server.py`）
+针对第三方表单服务易被墙、丢失数据或收取月费的弊端，自研轻量级 Python 常驻微服务（端口 `8012`）：
+1. **动态算术验证码（Math Security Captcha）**：
+   - 每次加载表单时调用 `/api/captcha`，动态生成随机算术式（如 `14 + 8 = ?`）并签发 HMAC SHA256 加密 Token；
+   - 彻底阻断全球 Bot 针对静态 Form 的垃圾邮件爆破，有效保护工厂业务邮箱。
+2. **多通道异步通知流**：
+   - 买家提交询盘后，服务端首先落地为标准 JSON/CSV 实体账本（`/var/www/CustomBentoFactory.com/data/inquiries.json` 与 `inquiries.csv`）；
+   - 后台守护线程异步通过 FormSubmit 邮件网关向 `info@naiketableware.com` 与 `cnproduct@gmail.com` 实时投递完整询盘明细（含 IP、国家、时区、品类与留言）；
+   - 响应买家友好确认界面，并返回唯一追踪单号（如 `CBF-20261007-XXXX`）。
+3. **管理后台安全巡检接口**：
+   - 提供安全密钥查询端点 `/api/inquiries?key=naike2026admin`，便于业务主管在浏览器直接查阅最新买家线索。
+4. **Nginx 反向代理与 Systemd 守护**：
+   - Nginx 将 `/api/` 路由隐形代理至 `http://127.0.0.1:8012`，对外展现为原生同源 API；
+   - Systemd 单元 `custombentofactory-rfq.service` 实现开机自启、崩溃自动重启与内存保护。

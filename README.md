@@ -99,11 +99,29 @@ Compiles `/llms.txt`, `/ai/summary.json`, `/ai/faq.json`, and `/ai/vendor-compar
 python3 scripts/generate_llms_manifest.py --output-dir /path/to/website/root
 ```
 
-### 3. Remote Production Deployment (`scripts/deploy_remote.sh`)
-Packages assets without macOS AppleDouble clutter, uploads via SSH port 2222, unpacks, fixes permissions, and reloads Nginx:
+### 3. Standalone RFQ Backend Daemon (`scripts/rfq_server.py`)
+Production-tested Python HTTP daemon (port 8012) with HMAC math captcha, FormSubmit asynchronous email dispatch, disk ledger (`inquiries.json` & `.csv`), and admin inspection endpoint:
+```bash
+# Run standalone or manage via systemctl
+python3 scripts/rfq_server.py
+sudo systemctl status custombentofactory-rfq.service
+```
+
+### 4. Remote Production Deployment (`scripts/deploy_remote.sh`)
+Packages assets without macOS AppleDouble clutter, uploads via SSH port 2222, unpacks, updates systemd RFQ service, and reloads Nginx:
 ```bash
 ./scripts/deploy_remote.sh
 ```
+
+---
+
+## 📈 Conversion & Instant Lead Generation
+
+- **Google Analytics 4**: Live measurement (`G-NJ3DKWY1LE`) tracking high-intent `generate_lead`, `click_whatsapp`, and `contact` events.
+- **WhatsApp Direct Engineering Desk**: Worldwide quick-dial E.164 links unified to **`+86 13599220505`** (`https://wa.me/8613599220505`).
+- **Aohea Benchmark**: Dedicated **Leakproof Engineering Lab** (`site/leakproof-lab.html`) featuring LSR overmolding, 2m drop tests, and -50kPa vacuum seal tests.
+- **Monbento Pro Benchmark**: **Executive Pure Titanium Bento Gifting Sets** (`site/executive-titanium-bento-gifting.html`) targeting $15.50–$28.50 corporate gift markets.
+- **Production Codebase**: Full 29-page responsive, semantic HTML5/Tailwind/CSS3 site deployed under `site/`.
 
 ---
 

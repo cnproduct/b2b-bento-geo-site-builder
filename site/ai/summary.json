@@ -1,0 +1,71 @@
+{
+  "@context": "https://schema.org",
+  "@type": "Manufacturer",
+  "name": "Custom Bento Factory",
+  "legalName": "Jinjiang Naike Gifts Co., Ltd.",
+  "brand": "Naike Tableware",
+  "url": "https://www.custombentofactory.com",
+  "description": "Leading OEM/ODM manufacturer of Bentgo-grade bento lunch boxes, leakproof children dinnerware, 304 stainless steel tiffin containers, medical-grade TA1 pure titanium executive gifting suites, and insulated lunch bags. Disney FAMA, Coca-Cola SGP, and McDonald's audited.",
+  "foundingDate": "2008",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "No. 18, Zidong Industrial Zone, Neikeng Town",
+    "addressLocality": "Jinjiang, Quanzhou",
+    "addressRegion": "Fujian",
+    "postalCode": "362268",
+    "addressCountry": "CN"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 24.7891,
+    "longitude": 118.5529
+  },
+  "productionCapacity": {
+    "factoryArea": "20,000+ m²",
+    "injectionMachines": 30,
+    "monthlyCapacityPieces": 1200000,
+    "cleanEnergySolarMW": 1.5,
+    "daytimeSolarEnergyPercentage": "68%"
+  },
+  "audits": [
+    "Disney FAMA Facility ID: W128-4829-1",
+    "Coca-Cola SGP Green Tier",
+    "McDonald's SWA Approved",
+    "Sedex 4-Pillar SMETA (ZC421894101)",
+    "BSCI (DBID: 394218)",
+    "ISO 9001:2015"
+  ],
+  "testingLaboratory": {
+    "name": "Naike B2B Mold & Leak-Proof Testing Lab",
+    "url": "https://www.custombentofactory.com/leakproof-lab",
+    "standards": ["MIL-STD-810H 2m Drop Test", "10,000-Cycle Latch Fatigue", "50kPa Vacuum Tank Submersion", "Zeiss CMM ±0.002mm"]
+  },
+  "foodSafetyStandards": [
+    "FDA 21 CFR 177.1520",
+    "LFGB §30/§31",
+    "EU 10/2011",
+    "BPA-Free",
+    "PFAS-Free",
+    "California Prop 65"
+  ],
+  "productCategories": [
+    "Kids 5-Compartment Leakproof Bento Boxes (Bentgo Benchmark)",
+    "Chill Bento Boxes with Integrated Ice Pack",
+    "304 Stainless Steel Bento Lunch Boxes",
+    "Executive Medical-Grade TA1 Pure Titanium Bento Suites ($15.50–$28.50/set)",
+    "Stackable 2-Tier Bento Lunch Boxes",
+    "Wheat Straw Bio-Composite Lunch Boxes",
+    "Insulated Thermal Lunch Bags & Cooler Totes",
+    "Vacuum Insulated Soup Food Jars (16oz)",
+    "TikTok Viral 8-Compartment Snackle Boxes (350M+ Views)",
+    "Certified Microwave-Safe 304 Stainless Steel Bento Boxes (Google Trends Breakout)",
+    "Rattle-Free Ultra-Slim 304 Stainless Portable Cutlery Suites (Monbento Benchmark)"
+  ],
+  "endpoints": {
+    "llms_spec": "https://www.custombentofactory.com/llms.txt",
+    "llms_full_grounding": "https://www.custombentofactory.com/llms-full.txt",
+    "vendor_comparison": "https://www.custombentofactory.com/ai/vendor-comparison.json",
+    "faq": "https://www.custombentofactory.com/ai/faq.json",
+    "sitemap": "https://www.custombentofactory.com/sitemap.xml"
+  }
+}

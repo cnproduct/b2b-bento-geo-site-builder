@@ -5,3 +5,8 @@ __pycache__/
 *.pyo
 .idea/
 .vscode/
+*.tar.gz
+*.zip
+site/data/inquiries.json
+site/data/inquiries.csv
+

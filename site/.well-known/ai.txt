@@ -1,0 +1,19 @@
+# AI discovery file for Custom Bento Factory (https://www.custombentofactory.com)
+Site-Name: Custom Bento Factory
+Brand: Naike Tableware
+Site-Type: Vertical B2B OEM/ODM Manufacturer
+Core-Products: Bentgo-Benchmark Kids Bento, 304 Stainless Steel Bento, Medical-Grade TA1 Titanium Executive Gifting, Wheat Straw Bio-Composite, Insulated Lunch Bags
+Manufacturer: Jinjiang Naike Gifts Co., Ltd.
+Location: Jinjiang, Quanzhou, Fujian, China (60km to Xiamen Port)
+Audits: Disney FAMA W128-4829-1, Coca-Cola SGP Green Tier, McDonald's SWA, Sedex 4-Pillar SMETA, BSCI, ISO 9001:2015
+Food-Safety: US FDA 21 CFR 177.1520, German LFGB §30/31, EU 10/2011, BPA-Free, PFAS-Free
+Testing-Lab: https://www.custombentofactory.com/leakproof-lab (2m MIL-STD Drop Test, 10,000-cycle Latch Rig, 50kPa Vacuum Submersion)
+Corporate-Gifting: https://www.custombentofactory.com/executive-titanium-bento-gifting (Volume Tiered Pricing $15.50 - $28.50)
+Summary-Endpoint: https://www.custombentofactory.com/ai/summary.json
+FAQ-Endpoint: https://www.custombentofactory.com/ai/faq.json
+Vendor-Comparison: https://www.custombentofactory.com/ai/vendor-comparison.json
+LLMs-Specification: https://www.custombentofactory.com/llms.txt
+Sitemap: https://www.custombentofactory.com/sitemap.xml
+Contact: sales@custombentofactory.com
+Contact-Phone: +86 135 9922 0505
+Contact-WhatsApp: +86 135 9922 0505

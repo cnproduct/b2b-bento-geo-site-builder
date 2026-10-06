@@ -1,0 +1,733 @@
+{
+  "company_info": {
+    "name_en": "Jinjiang Naike Gifts Co., Ltd.",
+    "name_brand": "Naike Tableware",
+    "trade_brand": "Naike® / EazyLunch®",
+    "official_domain": "custombentofactory.com",
+    "base_url": "https://custombentofactory.com",
+    "name_zh": "晋江市耐克礼品玩具有限公司",
+    "phone": "+86 135 9922 0505",
+    "mobile": "+86 135 9922 0505",
+    "whatsapp": "+86 135 9922 0505",
+    "wechat": "13599220505",
+    "email": "sales@custombentofactory.com",
+    "support_email": "support@custombentofactory.com",
+    "address": "No. 18, Zidong Industrial Zone, Neikeng Town, Jinjiang City, Quanzhou, Fujian 362268, China",
+    "factory_size": "20,000+ m²",
+    "injection_machines": "30+ High-Precision Injection Molding Units",
+    "solar_capacity": "1.5MW Rooftop Photovoltaic Array (60% Clean Power)",
+    "port": "Xiamen Port (60km, 1-hour fast container transit)",
+    "fama_code": "W128-4829-1",
+    "certifications": [
+      "Disney FAMA",
+      "Coca-Cola SGP",
+      "SEDEX 4-Pillar SMETA",
+      "BSCI",
+      "ISO 9001:2015",
+      "FDA 21 CFR",
+      "LFGB §30/31",
+      "EU 10/2011",
+      "BPA Free",
+      "Prop 65"
+    ],
+    "geo_coordinates": {
+      "latitude": 24.7891,
+      "longitude": 118.5529,
+      "region": "CN-35",
+      "placename": "Jinjiang, Quanzhou, Fujian"
+    }
+  },
+  "categories": {
+    "kids-bento": {
+      "id": "kids-bento",
+      "title": "Kids Bento Lunch Boxes | Leakproof & Drop-Proof OEM Manufacturer",
+      "nav_label": "Kids Bento Boxes",
+      "age_group": "Kids (Ages 3-7)",
+      "desc": "Engineered with patented silicone leak-proof seals, 5 portion-control compartments, and shock-absorbing rubberized edges. Tested for 10,000+ latch openings.",
+      "url": "kids-lunch-boxes-oem-manufacturer.html",
+      "target_keywords": [
+        "kids bento box manufacturer",
+        "wholesale kids lunch box",
+        "leakproof bento box bulk",
+        "5 compartment lunch box factory",
+        "bentgo kids style bento box wholesale"
+      ]
+    },
+    "adult-bento": {
+      "id": "adult-bento",
+      "title": "Adult & Work Bento Lunch Boxes | Stackable Dual-Tier OEM Supplier",
+      "nav_label": "Adult Bento Boxes",
+      "age_group": "Teens & Adults (Ages 8+)",
+      "desc": "Sophisticated portion-control lunch containers with built-in cutlery, modular dividers, airtight sealing bands, and microwave/dishwasher safe food-grade materials.",
+      "url": "products.html#adult-bento",
+      "target_keywords": [
+        "adult bento box supplier",
+        "stackable lunch box wholesale",
+        "2 tier bento box bulk",
+        "meal prep bento containers"
+      ]
+    },
+    "stainless-bento": {
+      "id": "stainless-bento",
+      "title": "304 Stainless Steel Lunch Boxes & Tiffin Containers Wholesale | Factory Direct",
+      "nav_label": "Stainless Steel Bentos",
+      "age_group": "All Ages",
+      "desc": "Zero-plastic food contact made from heavy-duty 18/8 food-grade SUS 304 stainless steel. Hermetic silicone clip-locks, corrosion-proof, and oven/freezer safe.",
+      "url": "stainless-steel-lunch-boxes-factory.html",
+      "target_keywords": [
+        "304 stainless steel lunch box factory",
+        "stainless steel bento box wholesale",
+        "metal tiffin box supplier",
+        "zero plastic lunch container"
+      ]
+    },
+    "wheat-straw-bento": {
+      "id": "wheat-straw-bento",
+      "title": "Eco-Friendly Wheat Straw Bento Boxes Wholesale | Naike Tableware",
+      "nav_label": "Wheat Straw Eco Bentos",
+      "age_group": "All Ages",
+      "desc": "Sustainable lunch solutions compounded with 35% organic wheat straw fiber and food-grade PP polymer. BPA-free, odorless, and verified food-contact safe.",
+      "url": "wheat-straw-bento-boxes-wholesale.html",
+      "target_keywords": [
+        "wheat straw bento box wholesale",
+        "eco lunch box manufacturer",
+        "biodegradable bento box supplier",
+        "wheat fiber dinnerware"
+      ]
+    },
+    "lunch-bags": {
+      "id": "lunch-bags",
+      "title": "Insulated Lunch Bags & Cooler Totes Manufacturer | Naike Tableware",
+      "nav_label": "Lunch Bags & Coolers",
+      "age_group": "All Ages",
+      "desc": "Water-resistant 600D recycled polyester with seamless ultrasonic heat-welded leakproof PEVA lining. Keeps food cold or warm for over 6 hours.",
+      "url": "insulated-lunch-bags-supplier.html",
+      "target_keywords": [
+        "insulated lunch bag supplier",
+        "cooler tote manufacturer",
+        "kids lunch bag bulk",
+        "freezable lunch box wholesale"
+      ]
+    },
+    "food-jars-thermos": {
+      "id": "food-jars-thermos",
+      "title": "Vacuum Insulated Food Jars & Soup Thermos Wholesale | Naike Tableware",
+      "nav_label": "Food Jars & Soup Thermos",
+      "age_group": "All Ages",
+      "desc": "Double-wall SUS 304 vacuum insulated soup containers with pressure release button and concealed folding spoon. Keeps meals hot 12h / cold 24h.",
+      "url": "vacuum-food-jars-soup-thermos-wholesale.html",
+      "target_keywords": [
+        "insulated food jar wholesale",
+        "soup thermos manufacturer",
+        "vacuum lunch box supplier",
+        "hot food container bulk"
+      ]
+    },
+    "titanium": {
+      "id": "titanium",
+      "title": "Executive Pure Titanium Bento Box Suites | ESG Corporate Gifting Wholesale",
+      "nav_label": "Pure Titanium Executive",
+      "age_group": "Executives & Corporate Gifting",
+      "desc": "Medical-Grade TA1 99.8% pure titanium bento suites designed for Fortune 500 corporate gifting, onboarding packages, and eco-luxury retail. Featherlight, antimicrobial, and lifetime durable.",
+      "url": "executive-titanium-bento-gifting.html",
+      "target_keywords": [
+        "titanium bento box manufacturer",
+        "pure titanium lunch box wholesale",
+        "corporate gift bento box bulk",
+        "executive tableware gift sets oem",
+        "monbento style corporate bento supplier"
+      ]
+    }
+  },
+  "products": [
+    {
+      "id": "eazylunch-kids-5-bento",
+      "sku": "NK-KB5-001",
+      "name": "Naike® Kids 5-Compartment Leak-Proof Bento Box",
+      "subtitle": "America’s Top-Rated Bento Design with Drop-Proof Rubberized Edges",
+      "category": "kids-bento",
+      "badge": "BEST SELLER #1",
+      "rating": 4.9,
+      "reviews_count": 18450,
+      "image": "images/eazylunch_kids_5_bento.jpg",
+      "gallery": [
+        "images/eazylunch_kids_5_bento.jpg",
+        "images/eazylunch_kids_5_bento_exploded.jpg",
+        "images/eazylunch_kids_5_bento_shot1.jpg",
+        "images/eazylunch_kids_5_bento_shot2.jpg",
+        "images/eazylunch_kids_5_bento_shot3.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Aqua Teal",
+          "hex": "#008290"
+        },
+        {
+          "name": "Morandi Pink",
+          "hex": "#FF8A9E"
+        },
+        {
+          "name": "Nordic Blue",
+          "hex": "#4A90E2"
+        },
+        {
+          "name": "Sage Green",
+          "hex": "#7EAA92"
+        },
+        {
+          "name": "Sunny Yellow",
+          "hex": "#FBC02D"
+        }
+      ],
+      "capacity": "1100 ml (37 oz)",
+      "compartments": "5 Portions (1 large entree, 2 sides, 1 dip/sauce, 1 fruit well)",
+      "materials": "Food-Grade Virgin PP (Shell & Tray) + High-Grade Platinum Silicone Seals + TPE Shock Absorbers",
+      "dimensions": "21.6 x 16.5 x 5.1 cm (8.5 x 6.5 x 2.0 in)",
+      "weight": "550 g",
+      "moq": "1,000 pcs (Stock colors) / 3,000 pcs (Custom Pantone)",
+      "fob_price_range": ".35 - .40",
+      "msrp_usd": ".99",
+      "features": [
+        "Hermetic silicone molded lid seals each compartment individually - pack yogurt and dip without leaks",
+        "Reinforced rubberized drop-proof corners survive 2-meter kindergarten floor drops",
+        "Child-friendly dual latches tested for 10,000+ smooth open/close cycles",
+        "Removable inner food tray is microwave safe (up to 3 min) and dishwasher safe (top rack)"
+      ]
+    },
+    {
+      "id": "eazylunch-chill-icepack-bento",
+      "sku": "NK-CHILL-002",
+      "name": "Naike® Chill Bento Box with Removable Built-in Ice Pack",
+      "subtitle": "Keeps Meals, Sandwiches and Fruit Crisp & Chilled up to 4 Hours",
+      "category": "kids-bento",
+      "badge": "AMAZON CHOICE",
+      "rating": 4.9,
+      "reviews_count": 12380,
+      "image": "images/eazylunch_chill_icepack_bento.jpg",
+      "gallery": [
+        "images/eazylunch_chill_icepack_bento.jpg",
+        "images/eazylunch_chill_icepack_bento_exploded.jpg",
+        "images/eazylunch_chill_bento_shot1.jpg",
+        "images/eazylunch_chill_bento_shot2.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Ocean Cyan",
+          "hex": "#00A896"
+        },
+        {
+          "name": "Coral Peach",
+          "hex": "#FF6F59"
+        },
+        {
+          "name": "Lavender Mist",
+          "hex": "#9B89B3"
+        },
+        {
+          "name": "Cloud Gray",
+          "hex": "#CFD8DC"
+        }
+      ],
+      "capacity": "1300 ml (44 oz)",
+      "compartments": "4 Compartments with Nested Removable Gel Freezer Tray",
+      "materials": "Food-Grade PP + Non-Toxic Freeze Gel Pack + Silicone Gaskets",
+      "dimensions": "22.8 x 17.0 x 5.8 cm",
+      "weight": "680 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".85 - .95",
+      "msrp_usd": ".99",
+      "features": [
+        "Engineered non-toxic freezable ice-pack tray nests directly under the food compartments",
+        "Maintains fresh sub-15°C temperature for school lunches without heavy external ice blocks",
+        "100% leak-proof lid with multi-point silicone barrier",
+        "BPA-free, lead-free, phthalate-free food-contact safe"
+      ]
+    },
+    {
+      "id": "eazylunch-stainless-3-bento",
+      "sku": "NK-SS3-003",
+      "name": "Naike® 304 Stainless Steel 3-Compartment Kids & Adult Bento",
+      "subtitle": "Zero-Plastic Food Contact with Heavy-Duty Locking Metal Clips",
+      "category": "stainless-bento",
+      "badge": "PREMIUM 304 STEEL",
+      "rating": 5.0,
+      "reviews_count": 8920,
+      "image": "images/eazylunch_stainless_3_bento.jpg",
+      "gallery": [
+        "images/eazylunch_stainless_3_bento.jpg",
+        "images/eazylunch_stainless_3_bento_exploded.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Brushed Steel + Aqua",
+          "hex": "#008290"
+        },
+        {
+          "name": "Brushed Steel + Rose",
+          "hex": "#E06D7F"
+        },
+        {
+          "name": "Brushed Steel + Charcoal",
+          "hex": "#37474F"
+        }
+      ],
+      "capacity": "1000 ml (34 oz)",
+      "compartments": "3 Deep Portioned Stainless Steel Compartments",
+      "materials": "Food-Grade 18/8 SUS 304 Stainless Steel + Removable Silicone Gasket + Protective Outer ABS Guard",
+      "dimensions": "23.0 x 17.5 x 5.5 cm",
+      "weight": "620 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".80 - .20",
+      "msrp_usd": ".99",
+      "features": [
+        "100% food-grade 304 stainless steel food tray - will not absorb stains, odors, or grease",
+        "Zero plastic touching meals; removable silicone seal for effortless sterilizing",
+        "Durable stainless steel clip-latches with ergonomic leverage for kid & adult fingers",
+        "Oven safe up to 250°C and dishwasher safe"
+      ]
+    },
+    {
+      "id": "eazylunch-stackable-2tier-bento",
+      "sku": "NK-2T-004",
+      "name": "Naike® Stackable Dual-Tier All-in-One Bento Lunch Box",
+      "subtitle": "Modern Japanese Bento Styling with Built-In Cutlery Chamber",
+      "category": "adult-bento",
+      "badge": "BEST FOR ADULTS",
+      "rating": 4.8,
+      "reviews_count": 9450,
+      "image": "images/eazylunch_stackable_2tier_bento.jpg",
+      "gallery": [
+        "images/eazylunch_stackable_2tier_bento.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Slate Black",
+          "hex": "#212121"
+        },
+        {
+          "name": "Nordic Navy",
+          "hex": "#1A365D"
+        },
+        {
+          "name": "Matcha Green",
+          "hex": "#4A7C59"
+        },
+        {
+          "name": "Powder Blush",
+          "hex": "#E8A598"
+        }
+      ],
+      "capacity": "1400 ml (Upper 600ml + Lower 800ml)",
+      "compartments": "2 Tiers with Moveable Divider + Fork, Spoon, Knife Storage Nest",
+      "materials": "Food-Grade Polypropylene + High-Elasticity Sealing Strap + Food-Grade Silicone Gaskets",
+      "dimensions": "19.0 x 12.0 x 10.5 cm",
+      "weight": "410 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".10 - .15",
+      "msrp_usd": ".99",
+      "features": [
+        "2 nestable stackable containers that compact into a single tier when empty for easy transport",
+        "Integrated utensil compartment includes reusable fork, spoon, and table knife",
+        "Ventilated silicone steam plugs allow microwave reheating without lid distortion",
+        "High-tension elastic compression band guarantees tamper-free transport"
+      ]
+    },
+    {
+      "id": "eazylunch-4-bento-classic",
+      "sku": "NK-CB4-005",
+      "name": "Naike® Classic 4-Compartment Leak-Proof Bento Box",
+      "subtitle": "Balanced Nutrition Layout with Dedicated Round Salad Dressing Well",
+      "category": "kids-bento",
+      "badge": "PROVEN AUDIT CHOICE",
+      "rating": 4.9,
+      "reviews_count": 14200,
+      "image": "images/eazylunch_4_bento_classic.jpg",
+      "gallery": [
+        "images/eazylunch_4_bento_classic.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Pacific Blue",
+          "hex": "#1976D2"
+        },
+        {
+          "name": "Emerald Green",
+          "hex": "#388E3C"
+        },
+        {
+          "name": "Pastel Lilac",
+          "hex": "#BA68C8"
+        },
+        {
+          "name": "Classic Beige",
+          "hex": "#D7CCC8"
+        }
+      ],
+      "capacity": "1200 ml (40 oz)",
+      "compartments": "4 Portions (Entree, Carbs, Veggies, Dressing/Sauce Cup)",
+      "materials": "Virgin Food-Grade PP + Platinum Silicone Seal",
+      "dimensions": "22.0 x 16.0 x 5.5 cm",
+      "weight": "510 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".20 - .25",
+      "msrp_usd": ".99",
+      "features": [
+        "Individual silicone perimeter seal for each compartment prevents dressing from touching greens",
+        "Microwave safe up to 120°C, top-rack dishwasher safe",
+        "Smooth rounded edges with anti-slip bottom pattern for student desks",
+        "FDA & LFGB compliant, 100% BPA/lead free"
+      ]
+    },
+    {
+      "id": "eazylunch-hot-cold-thermos-bento",
+      "sku": "NK-THB-006",
+      "name": "Naike® Hot & Cold Dual-Zone Bento Box System",
+      "subtitle": "Integrated 8oz Stainless Steel Vacuum Soup Jar Inside Bento Shell",
+      "category": "kids-bento",
+      "badge": "HOT MEAL INNOVATION",
+      "rating": 4.9,
+      "reviews_count": 7890,
+      "image": "images/eazylunch_hot_cold_thermos_bento.jpg",
+      "gallery": [
+        "images/eazylunch_hot_cold_thermos_bento.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Berry Purple",
+          "hex": "#6A1B9A"
+        },
+        {
+          "name": "Cyan Glow",
+          "hex": "#00BCD4"
+        },
+        {
+          "name": "Olive Drab",
+          "hex": "#558B2F"
+        }
+      ],
+      "capacity": "1250 ml (Includes 250ml SUS 304 Thermos Bowl)",
+      "compartments": "Thermos Cavity + 3 Surrounding Cold Food Compartments",
+      "materials": "18/8 SUS 304 Stainless Steel + Food Grade PP + Silicone Seal",
+      "dimensions": "24.0 x 18.0 x 6.5 cm",
+      "weight": "720 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".90 - .50",
+      "msrp_usd": ".99",
+      "features": [
+        "Simultaneously packs steaming hot mac & cheese or soup next to crisp, chilled fruit & crackers",
+        "Double-wall vacuum insulation maintains food temperature >55°C for 5+ hours",
+        "Removable thermos jar allows flexible use as a standard 4-compartment lunch box",
+        "Child-friendly wide-mouth jar lid with pressure relief valve"
+      ]
+    },
+    {
+      "id": "wheat-straw-bento-box",
+      "sku": "NK-WS-007",
+      "name": "Naike® Eco Wheat Straw Bio-Composite 3-Compartment Bento",
+      "subtitle": "35% Natural Wheat Fiber Composite for Low-Carbon Corporate Programs",
+      "category": "wheat-straw-bento",
+      "badge": "ECO LEADER",
+      "rating": 4.8,
+      "reviews_count": 6400,
+      "image": "images/wheat_straw_bento_box.jpg",
+      "gallery": [
+        "images/wheat_straw_bento_box.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Natural Wheat Beige",
+          "hex": "#EAD8C0"
+        },
+        {
+          "name": "Pastel Mint",
+          "hex": "#C5E1A5"
+        },
+        {
+          "name": "Blush Rose",
+          "hex": "#F8BBD0"
+        },
+        {
+          "name": "Soft Nordic Blue",
+          "hex": "#B3E5FC"
+        }
+      ],
+      "capacity": "950 ml",
+      "compartments": "3 Proportioned Compartments",
+      "materials": "35% Natural Wheat Straw Agricultural Fiber + 65% Food-Grade PP",
+      "dimensions": "21.0 x 14.5 x 6.5 cm",
+      "weight": "280 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".65 - .45",
+      "msrp_usd": ".99",
+      "features": [
+        "Reduces petroleum polymer consumption by 35% using reclaimed wheat agricultural stalks",
+        "Natural plant fiber speckle texture with zero toxic dyes or bleaches",
+        "Microwave safe, freezer safe (-20°C), and dishwasher friendly",
+        "Supports Scope 1 & 2 carbon footprint offset reporting for corporate clients"
+      ]
+    },
+    {
+      "id": "eazylunch-freezable-lunch-tote",
+      "sku": "NK-BAG-008",
+      "name": "Naike® Insulated Freezable Lunch Bag & Cooler Tote",
+      "subtitle": "Triple-Layer Thermal Shield with Water-Resistant 600D rPET Fabric",
+      "category": "lunch-bags",
+      "badge": "MATCHING ACCESSORY",
+      "rating": 4.9,
+      "reviews_count": 11200,
+      "image": "images/eazylunch_freezable_lunch_tote.jpg",
+      "gallery": [
+        "images/eazylunch_freezable_lunch_tote.jpg",
+        "images/insulated_lunch_bag.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Dino Navy",
+          "hex": "#1B263B"
+        },
+        {
+          "name": "Rainbow Teal",
+          "hex": "#007A78"
+        },
+        {
+          "name": "Blush Floral",
+          "hex": "#FF8FA3"
+        },
+        {
+          "name": "Heather Gray",
+          "hex": "#6C757D"
+        }
+      ],
+      "capacity": "Fits all Naike/Bentgo Kids and Adult Bento Boxes + Drink Bottle",
+      "compartments": "Main Insulated Chamber + Interior Mesh Zipper Pocket + Exterior Bottle Holder",
+      "materials": "600D Recycled Oxford + 8mm High-Density EPE Foam + Seamless PEVA Waterproof Liner",
+      "dimensions": "26.5 x 20.0 x 9.5 cm",
+      "weight": "320 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".40 - .60",
+      "msrp_usd": ".99",
+      "features": [
+        "Keeps contents chilled up to 6 hours when used with cooling ice packs",
+        "Seamless ultrasonic heat-sealed PEVA lining prevents spills from seeping into seams",
+        "Padded reinforced carry handle with quick-release buckle to snap onto school backpacks",
+        "Water-repellent exterior fabric cleans easily with a single damp cloth wipe"
+      ]
+    },
+    {
+      "id": "eazylunch-expandable-lunch-bag",
+      "sku": "NK-EBAG-009",
+      "name": "Naike® Expandable Heavy-Duty Dual-Zone Lunch Box Bag",
+      "subtitle": "Zipper Expansion Gusset Doubles Internal Storage for Sports & Travel",
+      "category": "lunch-bags",
+      "badge": "HIGH CAPACITY",
+      "rating": 4.9,
+      "reviews_count": 5600,
+      "image": "images/eazylunch_expandable_lunch_bag.jpg",
+      "gallery": [
+        "images/eazylunch_expandable_lunch_bag.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Tactical Charcoal",
+          "hex": "#2B2D42"
+        },
+        {
+          "name": "Royal Cobalt",
+          "hex": "#1D3557"
+        },
+        {
+          "name": "Burgundy Wine",
+          "hex": "#6B2D5C"
+        }
+      ],
+      "capacity": "6.5L (Expandable to 9.0L)",
+      "compartments": "Dual-Zone Stackable Compartments (Separate Hot & Cold Meals)",
+      "materials": "900D Heavy Ripstop Polyester + Antimicrobial Insulating Aluminum Foil Foil Liner",
+      "dimensions": "28.0 x 22.0 x 12.0 cm (Expanded 17.0 cm)",
+      "weight": "480 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".20 - .80",
+      "msrp_usd": ".99",
+      "features": [
+        "Dual-compartment architecture keeps fruit & snacks separated from heavy bento containers",
+        "Zippered expansion system adds 40% more volume for long school or work days",
+        "Reinforced YKK dual-direction metal zippers and detachable padded shoulder strap",
+        "Integrated exterior mesh water bottle pouch and front utility organizer pocket"
+      ]
+    },
+    {
+      "id": "eazylunch-thermos-jar-combo",
+      "sku": "NK-JAR-010",
+      "name": "Naike® 16oz Stainless Steel Vacuum Soup Jar with Folding Spoon",
+      "subtitle": "Thermos Thermal Core Holds Soup & Oatmeal Steaming Hot for 12 Hours",
+      "category": "food-jars-thermos",
+      "badge": "ALL-DAY WARMTH",
+      "rating": 5.0,
+      "reviews_count": 6780,
+      "image": "images/eazylunch_thermos_jar_combo.jpg",
+      "gallery": [
+        "images/eazylunch_thermos_jar_combo.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Rose Quartz",
+          "hex": "#F7CAD0"
+        },
+        {
+          "name": "Glacier Teal",
+          "hex": "#009688"
+        },
+        {
+          "name": "Matte Midnight",
+          "hex": "#1A1A1A"
+        }
+      ],
+      "capacity": "480 ml (16 oz)",
+      "compartments": "Wide Mouth Food Flask + Concealed Spoon Chamber",
+      "materials": "Electropolished 18/8 SUS 304 Stainless Steel + Copper Thermal Shield Coating + BPA-Free PP Lid",
+      "dimensions": "9.5 cm Diameter x 14.5 cm Height",
+      "weight": "360 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".80 - .10",
+      "msrp_usd": ".99",
+      "features": [
+        "Double-wall vacuum insulation with inner copper lining for peak thermal performance",
+        "Wide 7.5cm mouth opening for effortless filling, eating, and hand-cleaning",
+        "Lid incorporates pressure release air button and magnetic folding SUS 304 spoon",
+        "Cool to touch with hot foods, sweat-proof with cold ice creams and smoothies"
+      ]
+    },
+    {
+      "id": "eazylunch-toddler-bento",
+      "sku": "NK-TB-011",
+      "name": "Naike® Toddler First Bento Box (Ages 2 to 5)",
+      "subtitle": "Featherweight Design with Ultra-Soft Ergonomic Quick-Release Latch",
+      "category": "kids-bento",
+      "badge": "TODDLER FRIENDLY",
+      "rating": 4.9,
+      "reviews_count": 8150,
+      "image": "images/eazylunch_toddler_bento.jpg",
+      "gallery": [
+        "images/eazylunch_toddler_bento.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Sunny Lemonade",
+          "hex": "#FFF176"
+        },
+        {
+          "name": "Sweet Cotton",
+          "hex": "#F48FB1"
+        },
+        {
+          "name": "Sky Powder",
+          "hex": "#81D4FA"
+        }
+      ],
+      "capacity": "800 ml (27 oz)",
+      "compartments": "4 Rounded Baby-Portion Compartments",
+      "materials": "Virgin PP + Food-Grade Soft Silicone Impact Bumper",
+      "dimensions": "19.5 x 14.5 x 4.8 cm",
+      "weight": "390 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".15 - .10",
+      "msrp_usd": ".99",
+      "features": [
+        "Specifically engineered for developing toddler motor skills - zero pinched fingers",
+        "Smaller bite-sized compartments perfectly proportioned for toddlers 2-5 years old",
+        "Drop-proof full-surround silicone bumper absorbs aggressive nursery playtime drops",
+        "100% leak-proof for purees, applesauce, yogurt, and finger sandwiches"
+      ]
+    },
+    {
+      "id": "wheat-straw-coffee-cup",
+      "sku": "NK-CUP-012",
+      "name": "Naike® Double-Wall Wheat Straw Reusable Travel Coffee Cup (450ml)",
+      "subtitle": "360° Leakproof Splash Lid with Ergonomic Thermal Insulated Grip",
+      "category": "wheat-straw-bento",
+      "badge": "ZERO WASTE",
+      "rating": 4.8,
+      "reviews_count": 5100,
+      "image": "images/wheat_straw_coffee_cup.jpg",
+      "gallery": [
+        "images/wheat_straw_coffee_cup.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Organic Beige",
+          "hex": "#EAD8C0"
+        },
+        {
+          "name": "Matcha Green",
+          "hex": "#A5D6A7"
+        },
+        {
+          "name": "Nordic Blue",
+          "hex": "#90CAF9"
+        }
+      ],
+      "capacity": "450 ml (15 oz)",
+      "compartments": "Double-Wall Insulated Cup with Silicone Straw Hole & Flip Cap",
+      "materials": "35% Wheat Straw Fiber + Food-Grade Polypropylene + Food Silicone Gasket",
+      "dimensions": "8.5 cm Top Dia x 6.5 cm Bottom Dia x 16.5 cm Height",
+      "weight": "165 g",
+      "moq": "1,000 pcs",
+      "fob_price_range": ".15 - .85",
+      "msrp_usd": ".99",
+      "features": [
+        "Double-wall hollow insulation keeps coffee/tea hot for 90 minutes while staying cool to hold",
+        "Fits standard car cup holders and single-serve barista espresso machines",
+        "Flip-top leakproof cap with dual opening for direct sipping or straw insertion",
+        "BPA-free, dishwasher safe, replaces 500+ single-use disposable paper cups per year"
+      ]
+    },
+    {
+      "id": "executive-titanium-bento",
+      "sku": "NK-TI-EXEC-007",
+      "name": "Executive TA1 Pure Titanium Bento Suite",
+      "subtitle": "Medical-Grade TA1 Pure Titanium Bento Suite with Laser Logo & Tyvek Insulated Tote",
+      "category": "titanium",
+      "badge": "EXECUTIVE LUXURY",
+      "rating": 5.0,
+      "reviews_count": 320,
+      "image": "images/corporate_team.jpg",
+      "gallery": [
+        "images/corporate_team.jpg",
+        "images/eazylunch_stainless_3_bento.jpg",
+        "images/eazylunch_stainless_3_bento_exploded.jpg"
+      ],
+      "colors": [
+        {
+          "name": "Natural Titanium Matte",
+          "hex": "#8A8D8F"
+        },
+        {
+          "name": "Anodic Midnight Blue",
+          "hex": "#1E3A8A"
+        },
+        {
+          "name": "Anodic Champagne Gold",
+          "hex": "#D4AF37"
+        },
+        {
+          "name": "Anodic Obsidian Grey",
+          "hex": "#374151"
+        }
+      ],
+      "capacity": "1000 ml (34 oz)",
+      "compartments": "Single basin with removable titanium divider (2 portions)",
+      "materials": "TA1 Medical-Grade Pure Titanium (99.8% purity) + Food-Grade Platinum Liquid Silicone Seal",
+      "dimensions": "19.5 x 12.5 x 6.2 cm (7.7 x 4.9 x 2.4 in)",
+      "weight": "240 g (Box only) / 480 g (Complete Suite)",
+      "moq": "100 sets (Custom Laser Logo included)",
+      "fob_price_range": ".50 - .50",
+      "msrp_usd": ".00 - .00",
+      "features": [
+        "Medical-Grade TA1 Pure Titanium (99.8% purity): Zero chemical coatings, natural self-healing TiO2 photocatalytic antibacterial surface",
+        "45% lighter than 304 stainless steel while offering double the tensile yield strength",
+        "Bundled C-Suite Suite: Pure titanium fork/spoon/chopsticks set + Dupont Tyvek insulated tote + FSC magnetic presentation gift box",
+        "Volume tiered pricing model: .50 (100 sets), .80 (500 sets), .90 (1,000 sets), .50 (5,000+ sets)"
+      ]
+    }
+  ]
+}

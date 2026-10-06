@@ -1,0 +1,2124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naike Gifts B2B Admin Console</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0f172a;
+      --bg-card: rgba(30, 41, 59, 0.7);
+      --primary: #007aff;
+      --primary-hover: #0056b3;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --border: rgba(255, 255, 255, 0.08);
+      --success: #10b981;
+      --error: #f43f5e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+    }
+
+    /* Sidebar */
+    .sidebar {
+      width: 260px;
+      border-right: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.95);
+      padding: 30px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+      color: var(--primary);
+    }
+
+    .logo-container img {
+      height: 32px;
+      width: auto;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .nav-item {
+      padding: 12px 16px;
+      border-radius: 8px;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-item:hover, .nav-item.active {
+      color: var(--text);
+      background: var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 122, 255, 0.3);
+    }
+
+    /* Main Content */
+    .main-content {
+      flex: 1;
+      padding: 40px;
+      overflow-y: auto;
+      height: 100vh;
+    }
+
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .header-bar h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border-radius: 8px;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.95rem;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.08);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .btn-danger {
+      background: var(--error);
+      color: white;
+    }
+
+    /* Card Panels */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 30px;
+      margin-bottom: 30px;
+      backdrop-filter: blur(10px);
+    }
+
+    .card h2 {
+      margin-bottom: 20px;
+      font-size: 1.4rem;
+      font-weight: 600;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    /* Form Elements */
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 15px;
+    }
+
+    .form-group.full-width {
+      grid-column: span 2;
+    }
+
+    label {
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-muted);
+    }
+
+    input, textarea, select {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.6);
+      color: var(--text);
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.15);
+    }
+
+    /* Tabs Panel switcher */
+    .tab-panel {
+      display: none;
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    /* List grids for news / products */
+    .list-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .list-item-row:last-child {
+      border-bottom: none;
+    }
+
+    .list-item-info {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .list-item-info img {
+      width: 50px;
+      height: 50px;
+      object-fit: cover;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+    }
+
+    .list-item-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    /* Media Uploader */
+    .upload-zone {
+      border: 2px dashed var(--border);
+      border-radius: 12px;
+      padding: 40px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s;
+      background: rgba(15, 23, 42, 0.4);
+    }
+
+    .upload-zone:hover {
+      border-color: var(--primary);
+      background: rgba(0, 122, 255, 0.05);
+    }
+
+    /* Iframe Visual Editor styling */
+    .editor-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .editor-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(30, 41, 59, 0.9);
+      padding: 15px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    /* Toast Notifications */
+    .toast {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: var(--success);
+      color: white;
+      padding: 15px 25px;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      font-weight: 600;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s;
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .toast.error {
+      background: var(--error);
+    }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(5px);
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .modal.show {
+      display: flex;
+    }
+
+    .modal-content {
+      background: #1e293b;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      width: 600px;
+      max-width: 90%;
+      max-height: 85vh;
+      overflow-y: auto;
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="adminApp" style="display: none; height: 100vh; width: 100%; flex-direction: row; overflow: hidden;">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="logo-container">
+      <img src="images/logo.png" alt="Naike Logo" style="display:none;">
+      <span>NAIKE CONSOLE</span>
+    </div>
+    <ul class="nav-list">
+      <li class="nav-item active" onclick="switchTab('dashboard')">📊 Dashboard</li>
+      <li class="nav-item" onclick="switchTab('general')">⚙️ General Settings</li>
+      <li class="nav-item" onclick="switchTab('products')">📦 Products Manager</li>
+      <li class="nav-item" onclick="switchTab('news')">📰 Newsroom Manager</li>
+      <li class="nav-item" onclick="switchTab('visual')">👁️ Visual Page Editor</li>
+      <li class="nav-item" onclick="switchTab('media')">🖼️ Media Uploader</li>
+      <li class="nav-item" onclick="switchTab('ai_suite')">🤖 AI Content Suite</li>
+      <li class="nav-item" onclick="switchTab('traffic')">📈 Traffic & Ads Manager</li>
+      <li class="nav-item" onclick="handleLogout()" style="color:#ef4444; border-top:1px solid rgba(255,255,255,0.05); margin-top:10px; font-weight: 600;">🚪 Logout</li>
+    </ul>
+    <div style="margin-top:auto; font-size:0.8rem; color:var(--text-muted); text-align:center;">
+      B2B System Core v2.2
+    </div>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="header-bar">
+      <h1 id="panelTitle">Dashboard Overview</h1>
+      <button class="btn btn-primary" onclick="triggerRebuild()">🚀 Compile Site</button>
+    </div>
+
+    <!-- Dashboard Panel -->
+    <div id="dashboard" class="tab-panel active">
+      <div class="card">
+        <h2>System Status</h2>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; text-align: center;">
+          <div style="background: rgba(15,23,42,0.4); padding: 20px; border-radius: 8px; border:1px solid var(--border)">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary);" id="statProducts">0</div>
+            <div style="color:var(--text-muted); margin-top:5px;">Products Registered</div>
+          </div>
+          <div style="background: rgba(15,23,42,0.4); padding: 20px; border-radius: 8px; border:1px solid var(--border)">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--success);" id="statNews">0</div>
+            <div style="color:var(--text-muted); margin-top:5px;">News Articles Published</div>
+          </div>
+          <div style="background: rgba(15,23,42,0.4); padding: 20px; border-radius: 8px; border:1px solid var(--border)">
+            <div style="font-size: 2rem; font-weight: 700; color: #a855f7;">26</div>
+            <div style="color:var(--text-muted); margin-top:5px;">Static B2B Pages</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Rebuild Console Logging</h2>
+        <textarea id="buildLogs" style="width: 100%; height: 200px; font-family: monospace; background: #0b0f19; border-color: var(--border); color: #22c55e; padding:15px;" readonly>No compilation triggered yet.</textarea>
+      </div>
+    </div>
+
+    <!-- General Settings Panel -->
+    <div id="general" class="tab-panel">
+      <div class="card">
+        <h2>B2B Company Coordinates</h2>
+        <form id="generalForm" onsubmit="saveGeneral(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Company Name (English)</label>
+              <input type="text" id="compNameEn" required>
+            </div>
+            <div class="form-group">
+              <label>Company Name (Chinese)</label>
+              <input type="text" id="compNameZh" required>
+            </div>
+            <div class="form-group">
+              <label>Header Brand Text</label>
+              <input type="text" id="compLogoText" required>
+            </div>
+            <div class="form-group">
+              <label>Sales Email Address</label>
+              <input type="email" id="compEmail" required>
+            </div>
+            <div class="form-group">
+              <label>Contact Phone Number</label>
+              <input type="text" id="compPhone" required>
+            </div>
+            <div class="form-group">
+              <label>Mobile Number</label>
+              <input type="text" id="compMobile" required>
+            </div>
+            <div class="form-group">
+              <label>WhatsApp Number API (with country code, no space)</label>
+              <input type="text" id="compWhatsapp" required>
+            </div>
+            <div class="form-group">
+              <label>WeChat ID / QR Number</label>
+              <input type="text" id="compWechat" required>
+            </div>
+            <div class="form-group">
+              <label>Default Shipping Port</label>
+              <input type="text" id="compPort" required>
+            </div>
+            <div class="form-group full-width">
+              <label>Factory Address Details</label>
+              <textarea id="compAddress" rows="3" required></textarea>
+            </div>
+          </div>
+
+          <h2 style="margin-top: 30px;">B2B Generative AI API Credentials</h2>
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Google Gemini API Key</label>
+              <input type="password" id="keyGemini" placeholder="Enter Gemini API key...">
+            </div>
+            <div class="form-group">
+              <label>OpenAI API Key (DALL-E 3)</label>
+              <input type="password" id="keyOpenai" placeholder="Enter OpenAI API key...">
+            </div>
+            <div class="form-group">
+              <label>DeepSeek API Key (V3 Translation)</label>
+              <input type="password" id="keyDeepseek" placeholder="Enter DeepSeek API key...">
+            </div>
+            <div class="form-group">
+              <label>Social Link: YouTube Profile URL</label>
+              <input type="text" id="linkYoutube" placeholder="https://www.youtube.com/@...">
+            </div>
+            <div class="form-group">
+              <label>Social Link: Instagram Profile URL</label>
+              <input type="text" id="linkInstagram" placeholder="https://www.instagram.com/...">
+            </div>
+            <div class="form-group">
+              <label>Social Link: Facebook Profile URL</label>
+              <input type="text" id="linkFacebook" placeholder="https://www.facebook.com/...">
+            </div>
+            <div class="form-group">
+              <label>Social Link: LinkedIn Profile URL</label>
+              <input type="text" id="linkLinkedin" placeholder="https://www.linkedin.com/company/...">
+            </div>
+            <div class="form-group">
+              <label>Social Link: TikTok Profile URL</label>
+              <input type="text" id="linkTiktok" placeholder="https://www.tiktok.com/@...">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 20px;">💾 Save General Settings</button>
+        </form>
+      </div>
+
+      <!-- Secure Console Authentication Settings -->
+      <div class="card" style="margin-top: 30px;">
+        <h2>Change Admin Console Password</h2>
+        <form id="passwordForm" onsubmit="changePassword(event)">
+          <div class="form-grid">
+            <div class="form-group">
+              <label>Current Console Password</label>
+              <input type="password" id="pwCurrent" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label>New Console Password</label>
+              <input type="password" id="pwNew" required style="width: 100%;">
+            </div>
+            <div class="form-group">
+              <label>Confirm New Password</label>
+              <input type="password" id="pwConfirm" required style="width: 100%;">
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="margin-top: 20px; background-color: var(--secondary); border: none; cursor: pointer; color: white;">🔒 Update Password</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Products Panel -->
+    <div id="products" class="tab-panel">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+          <h2>Product List Registry</h2>
+          <button class="btn btn-primary" onclick="openProductModal()">➕ Add Product</button>
+        </div>
+        <div id="productsListContainer" style="background: rgba(15,23,42,0.3); border-radius: 8px; border:1px solid var(--border)">
+          <!-- Render dynamic products -->
+        </div>
+      </div>
+    </div>
+
+    <!-- News Panel -->
+    <div id="news" class="tab-panel">
+      <div class="card">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom: 20px;">
+          <h2>Published Newsroom Articles</h2>
+          <button class="btn btn-primary" onclick="openNewsModal()">➕ Add Article</button>
+        </div>
+        <div id="newsListContainer" style="background: rgba(15,23,42,0.3); border-radius: 8px; border:1px solid var(--border)">
+          <!-- Render dynamic news -->
+        </div>
+      </div>
+
+      <div class="card" style="margin-top: 30px;">
+        <h2>🤖 AI Agent News Scheduler & Auto-Publisher</h2>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>AI Agent Platform</label>
+            <select id="agentProvider">
+              <option value="OpenClaw">OpenClaw API Gateway</option>
+              <option value="WorkBuddy">WorkBuddy AI Agent Integration</option>
+              <option value="AccioWork">Accio Work Agent Sync</option>
+              <option value="ChatGPT">ChatGPT API News Generator</option>
+              <option value="GeminiSpark">Gemini Spark Content Agent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Authorization Token / Client ID</label>
+            <input type="password" id="agentToken" placeholder="Enter authorization credential...">
+          </div>
+          <div class="form-group">
+            <label>Scheduler Start Date</label>
+            <input type="date" id="agentStartDate" value="2026-08-01">
+          </div>
+          <div class="form-group">
+            <label>Publication Frequency (Days)</label>
+            <select id="agentFrequency">
+              <option value="3">Every 3 Days</option>
+              <option value="7" selected>Every Week (7 Days)</option>
+              <option value="14">Every 2 Weeks (14 Days)</option>
+              <option value="30">Every Month (30 Days)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Articles to Batch</label>
+            <input type="number" id="agentBatchCount" value="5" min="1" max="10">
+          </div>
+          <div class="form-group">
+            <label>Target Sourcing Keywords & Topic Focus</label>
+            <input type="text" id="agentKeywords" placeholder="e.g. wheat straw bento box, reusable coffee cup, kids tableware">
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runAIAgentNews()" style="margin-top: 15px;">⚡ Batch Generate & Schedule Articles</button>
+      </div>
+    </div>
+
+    <!-- Visual Editor Panel -->
+    <div id="visual" class="tab-panel">
+      <div style="display: flex; gap: 20px; align-items: stretch;">
+        <!-- Left Side: Live Page Iframe Editor -->
+        <div class="card editor-container" style="flex: 3; margin-bottom: 0;">
+          <h2>Live Page Editor</h2>
+          <div class="editor-toolbar">
+            <div>
+              <label style="margin-right: 10px;">Select Page:</label>
+              <select id="pageSelect" onchange="loadPageInEditor()">
+                <option value="index.html">Home Page (index.html)</option>
+                <option value="products.html">Products Page (products.html)</option>
+                <option value="about.html">About Page (about.html)</option>
+                <option value="oem-odm.html">OEM/ODM Page (oem-odm.html)</option>
+                <option value="sustainability.html">Sustainability (sustainability.html)</option>
+                <option value="news.html">News Room Index (news.html)</option>
+                <option value="case-studies.html">Case Studies (case-studies.html)</option>
+                <option value="contact.html">Contact Us (contact.html)</option>
+                <option value="certifications.html">Compliance Hub (certifications.html)</option>
+                <option value="whitepapers.html">Technical Whitepapers (whitepapers.html)</option>
+                <option value="knowledge-graph.html">Knowledge Graph (knowledge-graph.html)</option>
+                <option value="glossary.html">Glossary (glossary.html)</option>
+              </select>
+            </div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-secondary" onclick="loadPageInEditor()">🔄 Refresh</button>
+              <button class="btn btn-primary" onclick="saveVisualPage()">💾 Save Changes</button>
+            </div>
+          </div>
+          <div style="color:var(--text-muted); font-size:0.85rem; margin-bottom:5px;">
+            💡 <strong>How to Edit:</strong> Click any text block to edit directly, or select it and use the AI panel on the right.
+          </div>
+          <iframe id="visualIframe" style="width: 100%; height: 70vh; border: 1px solid var(--border); border-radius: 8px; background: white;"></iframe>
+        </div>
+
+        <!-- Right Side: Visual AI Assistant Panel -->
+        <div class="card" style="flex: 1; min-width: 320px; display: flex; flex-direction: column; gap: 15px; margin-bottom: 0;">
+          <h2 style="border-bottom: 1px solid var(--border); padding-bottom: 10px;">✨ Visual AI Assistant</h2>
+          <div style="background: rgba(15,23,42,0.4); padding: 12px; border-radius: 8px; border: 1px solid var(--border); font-size: 0.9rem;">
+            <div id="aiActiveElementText" style="font-weight: 600; color: var(--primary);">Selected Element: None</div>
+            <div style="color: var(--text-muted); font-size: 0.8rem; margin-top: 5px;">(Click any text or image in the editor to select it)</div>
+          </div>
+
+          <div class="form-group">
+            <label>Choose AI Model</label>
+            <select id="aiVisualModel">
+              <option value="gemini">Google Gemini Pro (Default)</option>
+              <option value="deepseek">DeepSeek-V3 (Translate)</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Prompt Template Library</label>
+            <select id="aiVisualTemplate" onchange="applyVisualTemplate()">
+              <option value="">-- Choose Template --</option>
+              <option value="polish">[Text] B2B Copy Polish & SEO Optimize</option>
+              <option value="technical">[Text] Expand with Technical QC Parameters (Disney FAMA / LFGB)</option>
+              <option value="certify">[Text] Ingest Disney / SEDEX / ISO 9001 Sourcing Trust signals</option>
+              <option value="translate_es">[Text] Translate Element to Latin Spanish</option>
+              <option value="translate_de">[Text] Translate Element to German</option>
+              <option value="img_bento">[Image] Close-up organic wheat straw composite fibers</option>
+              <option value="img_factory">[Image] Automated clean injection molding lines</option>
+              <option value="vid_conveyor">[Video] Looping clip of automated injection & robotic arm</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Additional Custom Instructions</label>
+            <textarea id="aiVisualCustomPrompt" rows="3" placeholder="e.g. make it sound scientific and professional..."></textarea>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+            <button class="btn btn-primary" onclick="runVisualAIText()">⚡ Polish Selected Text</button>
+            <button class="btn btn-secondary" onclick="runVisualAIMedia('image')">🎨 Generate & Replace Image</button>
+            <button class="btn btn-secondary" onclick="runVisualAIMedia('video')">🎥 Generate & Replace Video</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Media Panel -->
+    <div id="media" class="tab-panel">
+      <div class="card">
+        <h2>B2B Media Asset Upload</h2>
+        <div class="upload-zone" onclick="document.getElementById('mediaInput').click()">
+          <input type="file" id="mediaInput" style="display:none;" onchange="handleMediaUpload(this)" accept="image/*,video/*">
+          <div style="font-size: 3rem; margin-bottom: 10px;">📂</div>
+          <h3>Drag & Drop or Click to Upload Media</h3>
+          <p style="color: var(--text-muted); margin-top:5px; font-size:0.9rem;">Supports PNG, JPG, JPEG, WEBP, GIF, SVG, and MP4 formats. Files are saved directly to the 'images/' folder.</p>
+        </div>
+        <div id="mediaUploadResult" style="margin-top: 20px; text-align: center; font-weight: 600; color: var(--success);"></div>
+      </div>
+    </div>
+
+    <!-- AI Content Suite Panel -->
+    <div id="ai_suite" class="tab-panel">
+      <div class="card">
+        <h2>AI Multi-Engine Copy & Translation Suite</h2>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label>Input Text / Copy draft</label>
+            <textarea id="aiInputText" rows="4" placeholder="Enter B2B copy, product specs, or draft announcement..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>AI Writing Engine</label>
+            <select id="aiTextEngine">
+              <option value="gemini">Google Gemini Pro (Scientific & B2B Polish)</option>
+              <option value="deepseek">DeepSeek-V3 (Highly Cost-Efficient Translation)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Action & Formatting</label>
+            <select id="aiTextAction" onchange="toggleLangSelect()">
+              <option value="optimize">Optimize & Expand for B2B SEO (Gemini)</option>
+              <option value="scientific">Add Scientific & EEAT Authority Annotations (Gemini)</option>
+              <option value="translate">Translate to Target Language (DeepSeek)</option>
+            </select>
+          </div>
+          <div class="form-group" id="langSelectGroup" style="display:none;">
+            <label>Target Export Language</label>
+            <select id="aiTargetLang">
+              <option value="es">Spanish (Latin America)</option>
+              <option value="ar">Arabic (Middle East)</option>
+              <option value="de">German (Europe)</option>
+              <option value="vi">Vietnamese (Southeast Asia)</option>
+            </select>
+          </div>
+          <div class="form-group" id="promptTextGroup">
+            <label>Instruction Prompt (Optional)</label>
+            <input type="text" id="aiTextPrompt" placeholder="e.g. emphasize Sumitomo SAP and CE certifications...">
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runAIText()" style="margin-top: 15px;">⚡ Run AI Writing Suite</button>
+        <div style="margin-top: 20px;">
+          <label>Result output:</label>
+          <textarea id="aiOutputText" rows="6" readonly style="width: 100%; margin-top:5px; font-family: monospace; background:#0b0f19; color:#f8fafc; border-color:var(--border); padding:10px;"></textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>AI Media Generation Studio (Creative Center)</h2>
+        <div class="form-grid">
+          <div class="form-group full-width">
+            <label>Creative Prompt (Describe the product photo or workshop clip you need)</label>
+            <textarea id="aiMediaPrompt" rows="3" placeholder="e.g. High-speed injection molding machine producing wheat straw bento boxes, 4k background loop..."></textarea>
+          </div>
+          <div class="form-group">
+            <label>Media Asset Type</label>
+            <select id="aiMediaType" onchange="toggleMediaEngine()">
+              <option value="image">B2B Product Photo (DALL-E 3)</option>
+              <option value="video">Automated Workshop Video Loop (Runway Gen-3)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>AI Generation Model</label>
+            <select id="aiMediaEngine">
+              <option value="dalle">OpenAI DALL-E 3</option>
+              <option value="runway">Runway Gen-3 (Mock Loop)</option>
+            </select>
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runAIMedia()" style="margin-top: 15px;">🎨 Generate Media Asset</button>
+        <div id="aiMediaResult" style="margin-top: 25px; text-align: center; display:none;">
+          <h4 style="margin-bottom: 10px;">Generated Preview:</h4>
+          <div id="aiMediaContainer" style="max-width: 500px; margin: 0 auto; border: 1px solid var(--border); border-radius: 8px; overflow: hidden; background: #0b0f19;">
+            <!-- Dynamic preview -->
+          </div>
+          <p id="aiMediaUrl" style="color:var(--success); font-weight:600; font-size:0.9rem; margin-top:10px;"></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Traffic & Ads Manager Panel -->
+    <div id="traffic" class="tab-panel">
+      <!-- Backlink Finder Card -->
+      <div class="card">
+        <h2>B2B Backlink Finder & Authority Analyzer</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+          Analyze domain authority and discover the highest-value partner sites, directories, and trade portals to build quality backlinks for your site.
+        </p>
+        <div class="form-grid" style="align-items: flex-end;">
+          <div class="form-group" style="flex: 2;">
+            <label>Target Website Domain</label>
+            <input type="text" id="backlinkDomain" value="eazylunch.com">
+          </div>
+          <div class="form-group" style="flex: 1;">
+            <button class="btn btn-primary" onclick="searchBacklinks()" style="width: 100%; height: 42px;">🔍 Search Backlinks</button>
+          </div>
+        </div>
+        
+        <div id="backlinkResults" style="margin-top: 25px; display: none;">
+          <h4 style="margin-bottom: 10px;">Recommended Backlink Targets:</h4>
+          <div style="overflow-x: auto; background: rgba(15,23,42,0.3); border-radius: 8px; border: 1px solid var(--border);">
+            <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--border); color: var(--text-dark); background: rgba(255,255,255,0.02);">
+                  <th style="padding: 12px 10px;">Partner Domain</th>
+                  <th style="padding: 12px 10px;">Category</th>
+                  <th style="padding: 12px 10px; text-align: center;">Authority Score</th>
+                  <th style="padding: 12px 10px;">Reason & Opportunity</th>
+                  <th style="padding: 12px 10px; text-align: center;">Action</th>
+                </tr>
+              </thead>
+              <tbody id="backlinkTableBody">
+                <!-- Rendered dynamically -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Outbound Outreach Pitch Assistant -->
+      <div class="card">
+        <h2>B2B Backlink Outreach & Pitch Assistant</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+          Drive organic authority and boost your GEO rankings. Generate highly targeted link exchange and guest blogging outreach pitches to editors in the eco tableware & kitchenware sector.
+        </p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Target Website (Partner Blog/News)</label>
+            <input type="text" id="pitchUrl" value="sustainable-packaging-review.com">
+          </div>
+          <div class="form-group">
+            <label>Editor / Contact Name</label>
+            <input type="text" id="pitchContact" value="Editorial Director">
+          </div>
+          <div class="form-group full-width">
+            <label>Pitch Context & Proposal</label>
+            <input type="text" id="pitchContext" value="Proposal for an analytical guest article on bio-based wheat straw composite tableware and food contact compliance.">
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runAIPitchGen()" style="margin-top: 15px;">✉️ Generate Outreach Pitch</button>
+        <div style="margin-top: 20px;">
+          <label>Generated Outreach Email Body:</label>
+          <textarea id="pitchOutputText" rows="10" readonly style="width: 100%; margin-top:5px; font-family: monospace; background:#0b0f19; color:#f8fafc; border-color:var(--border); padding:10px;"></textarea>
+        </div>
+      </div>
+
+      <!-- One-Click Multi-Channel Ad Copy Generator -->
+      <div class="card">
+        <h2>One-Click Multi-Channel B2B Ad Copy Generator</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+          Instantly generate high-converting, copy-pasteable B2B ad formats for search engine and social media platforms to drive targeted procurement traffic.
+        </p>
+        <div class="form-grid">
+          <div class="form-group">
+            <label>Target Product Name</label>
+            <input type="text" id="adProduct" value="OEM Wheat Straw Bento Box">
+          </div>
+          <div class="form-group">
+            <label>Core Search Keywords</label>
+            <input type="text" id="adKeywords" value="wheat straw lunchbox factory, custom bento box oem">
+          </div>
+          <div class="form-group full-width">
+            <label>Demographic / Audience Focus</label>
+            <input type="text" id="adAudience" value="B2B brand owners, corporate gift buyers, school supply distributors">
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="runAIAdGen()" style="margin-top: 15px;">⚡ Generate Ad Campaigns</button>
+        <div style="margin-top: 20px;">
+          <label>Generated Ad Copies:</label>
+          <textarea id="adOutputText" rows="10" readonly style="width: 100%; margin-top:5px; font-family: monospace; background:#0b0f19; color:#f8fafc; border-color:var(--border); padding:10px;"></textarea>
+        </div>
+      </div>
+
+      <!-- Quick Social Follow Preview/Actions Dashboard -->
+      <div class="card">
+        <h2>👥 Social Media & AI Profile Follow Actions (社媒与AI关注中心)</h2>
+        <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 20px;">
+          Quickly access and preview your official social media handles and AI sourcing assistants. Ensure buyers can click to follow your accounts and subscribe to your manufacturing streams directly.
+        </p>
+        <div class="form-grid">
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">👔</div>
+            <h4>LinkedIn Profile</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">For brand procurement & B2B distributors.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('linkedin')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">👥</div>
+            <h4>Facebook Business</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">For regional consumer brands & updates.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('facebook')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🎥</div>
+            <h4>YouTube Channel</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">For sterile cleanroom line loops.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('youtube')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">📸</div>
+            <h4>Instagram Profile</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">For wheat straw tableware photos.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('instagram')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🎵</div>
+            <h4>TikTok Profile</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">For global short clips & workshop live.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('tiktok')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">🤖</div>
+            <h4>Gemini Agent</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Sourcing assistant copilot.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('gemini')">🔗 Visit & Follow</button>
+          </div>
+          <div class="form-group" style="text-align: center; background: rgba(15,23,42,0.3); padding: 15px; border-radius: 8px; border: 1px solid var(--border);">
+            <div style="font-size: 2rem; margin-bottom: 5px;">💬</div>
+            <h4>ChatGPT Agent</h4>
+            <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 10px;">Interactive B2B trade consultant.</p>
+            <button class="btn btn-secondary btn-sm" onclick="followSocial('chatgpt')">🔗 Visit & Follow</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Product Modal -->
+  <div id="productModal" class="modal">
+    <div class="modal-content">
+      <h2 id="productModalTitle" style="margin-bottom: 20px; padding-bottom:10px; border-bottom:1px solid var(--border)">Add New Product</h2>
+      <form id="productForm" onsubmit="saveProduct(event)">
+        <input type="hidden" id="prodEditIdx" value="-1">
+        <div class="form-group">
+          <label>Product ID (lowercase, e.g. kids-5-bento)</label>
+          <input type="text" id="prodId" required>
+        </div>
+        <div class="form-group">
+          <label>Product Name</label>
+          <input type="text" id="prodName" required>
+        </div>
+        <div class="form-group">
+          <label>Category (e.g. kids-dinnerware, bento-box, coffee-cup, dinnerware, lunch-bag)</label>
+          <input type="text" id="prodCategory" required>
+        </div>
+        <div class="form-group">
+          <label>Feature Tag (e.g. Amazon Bestseller)</label>
+          <input type="text" id="prodTag" required>
+        </div>
+        <div class="form-group">
+          <label>Scheduled Publication Time (Leave blank to publish immediately)</label>
+          <input type="datetime-local" id="prodPublishTime">
+        </div>
+        <div class="form-group">
+          <label>Image/Video Source Path (e.g. images/my_bento.jpg)</label>
+          <input type="text" id="prodImage" required>
+        </div>
+        <div class="form-group" style="margin-top: 10px; padding: 15px; border: 1px dashed var(--border); border-radius: 8px; text-align: center; background: rgba(15,23,42,0.2);">
+          <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary);">Replace Image/Video via Local Upload</label>
+          <input type="file" id="prodMediaFile" accept="image/*,video/*" style="display: none;" onchange="uploadProductMedia(this)">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('prodMediaFile').click()">Choose File & Upload</button>
+          <div id="prodMediaUploadStatus" style="font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);"></div>
+        </div>
+        <div class="form-group">
+          <label>Specifications / Text Content Bullet List (one item per line)</label>
+          <textarea id="prodFeatures" rows="6" required></textarea>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-secondary" onclick="closeProductModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Product</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- News Modal -->
+  <div id="newsModal" class="modal">
+    <div class="modal-content" style="width: 800px;">
+      <h2 id="newsModalTitle" style="margin-bottom: 20px; padding-bottom:10px; border-bottom:1px solid var(--border)">Add New Article</h2>
+      <form id="newsForm" onsubmit="saveNews(event)">
+        <input type="hidden" id="newsEditIdx" value="-1">
+        <div class="form-group">
+          <label>Detail Page Filename (e.g. news-my-article.html)</label>
+          <input type="text" id="newsFilename" required>
+        </div>
+        <div class="form-group">
+          <label>Article Title</label>
+          <input type="text" id="newsTitle" required>
+        </div>
+        <div class="form-group">
+          <label>Category (e.g. 🌿 ESG & Sustainability, ⚙️ Product News, 🏭 Factory Updates)</label>
+          <input type="text" id="newsCategory" required>
+        </div>
+        <div class="form-group">
+          <label>Display Date (e.g. August 10, 2026)</label>
+          <input type="text" id="newsDate" required>
+        </div>
+        <div class="form-group">
+          <label>Sitemap/Index ISO Date (e.g. 2026-08-10)</label>
+          <input type="date" id="newsSitemapDate" required>
+        </div>
+        <div class="form-group">
+          <label>Scheduled Publication Time (Leave blank to publish immediately)</label>
+          <input type="datetime-local" id="newsPublishTime">
+        </div>
+        <div class="form-group">
+          <label>Image Source Path (e.g. images/sustainability_factory.jpg)</label>
+          <input type="text" id="newsImage" required>
+        </div>
+        <div class="form-group" style="margin-top: 10px; padding: 15px; border: 1px dashed var(--border); border-radius: 8px; text-align: center; background: rgba(15,23,42,0.2);">
+          <label style="display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary);">Replace Image via Local Upload</label>
+          <input type="file" id="newsMediaFile" accept="image/*" style="display: none;" onchange="uploadNewsMedia(this)">
+          <button type="button" class="btn btn-secondary btn-sm" onclick="document.getElementById('newsMediaFile').click()">Choose File & Upload</button>
+          <div id="newsMediaUploadStatus" style="font-size: 0.8rem; margin-top: 5px; color: var(--text-muted);"></div>
+        </div>
+        <div class="form-group">
+          <label>Image Alt Description</label>
+          <input type="text" id="newsAlt" required>
+        </div>
+        <div class="form-group">
+          <label>Summary (for news list card page preview)</label>
+          <textarea id="newsSummary" rows="2" required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Introduction Sentence (e.g. Jinjiang Naike Gifts has officially...)</label>
+          <input type="text" id="newsIntro" required>
+        </div>
+        <div class="form-group">
+          <label>Article Body Content (raw HTML allowed, e.g. &lt;p&gt;...&lt;/p&gt;)</label>
+          <textarea id="newsBody" rows="8" required></textarea>
+        </div>
+        <div style="display:flex; justify-content:flex-end; gap:10px; margin-top:20px;">
+          <button type="button" class="btn btn-secondary" onclick="closeNewsModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Article</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  </div><!-- Closing adminApp -->
+
+  <!-- Secure Login Overlay -->
+  <div id="loginScreen" style="display: flex; align-items: center; justify-content: center; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: radial-gradient(circle at center, #1e293b, #0f172a); z-index: 99999; font-family: 'Outfit', sans-serif;">
+    <div style="background: rgba(30, 41, 59, 0.45); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 40px; width: 100%; max-width: 420px; box-shadow: 0 20px 40px rgba(0,0,0,0.4); text-align: center;">
+      <div style="margin-bottom: 25px;">
+        <!-- Logo -->
+        <img src="images/logo.png" alt="Naike Logo" style="height: 50px; margin-bottom: 15px;">
+        <h2 style="color: #f8fafc; font-size: 1.5rem; font-weight: 700; margin: 0; letter-spacing: 1px;">NAIKE CONSOLE</h2>
+        <p style="color: #94a3b8; font-size: 0.85rem; margin-top: 5px;">Secure Administration Gateway</p>
+      </div>
+      
+      <form id="loginForm" onsubmit="handleLogin(event)">
+        <div style="margin-bottom: 20px; text-align: left;">
+          <label style="display: block; color: #cbd5e1; font-size: 0.85rem; margin-bottom: 8px; font-weight: 500;">Console Password</label>
+          <input type="password" id="loginPassword" required style="width: 100%; padding: 12px 16px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(15, 23, 42, 0.6); color: #f8fafc; font-size: 1rem; outline: none; box-sizing: border-box; transition: border-color 0.2s;" onfocus="this.style.borderColor='var(--primary)'" onblur="this.style.borderColor='rgba(255,255,255,0.1)'" placeholder="Enter secure key">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 14px; font-size: 1rem; font-weight: 600; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3); border: none; cursor: pointer; color: white;">Access Console</button>
+      </form>
+      <div id="loginError" style="color: #ef4444; font-size: 0.85rem; margin-top: 15px; display: none; font-weight: 500;">Incorrect console key. Access denied.</div>
+    </div>
+  </div>
+
+  <!-- Toast Notification element -->
+  <div id="toast" class="toast">Settings Saved successfully!</div>
+
+  <!-- Scripts -->
+  <script>
+    let siteData = {};
+
+    // Global Fetch Interceptor to automatically attach secure Bearer token
+    const originalFetch = window.fetch;
+    window.fetch = function(url, options) {
+      options = options || {};
+      options.headers = options.headers || {};
+      const token = localStorage.getItem('admin_token');
+      if (token) {
+        options.headers['Authorization'] = 'Bearer ' + token;
+      }
+      return originalFetch(url, options).then(res => {
+        if (res.status === 401) {
+          handleLogout();
+        }
+        return res;
+      });
+    };
+
+    document.addEventListener('DOMContentLoaded', () => {
+      checkAuth();
+    });
+
+    function checkAuth() {
+      const token = localStorage.getItem('admin_token');
+      if (!token) {
+        showLogin();
+        return;
+      }
+      
+      originalFetch('/api/verify-token', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ token: token })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.valid) {
+          showApp();
+          loadSiteData();
+        } else {
+          showLogin();
+        }
+      })
+      .catch(() => {
+        showLogin();
+      });
+    }
+
+    function showLogin() {
+      document.getElementById('loginScreen').style.display = 'flex';
+      document.getElementById('adminApp').style.display = 'none';
+      localStorage.removeItem('admin_token');
+    }
+
+    function showApp() {
+      document.getElementById('loginScreen').style.display = 'none';
+      document.getElementById('adminApp').style.display = 'flex';
+    }
+
+    function handleLogin(e) {
+      e.preventDefault();
+      const password = document.getElementById('loginPassword').value;
+      const errEl = document.getElementById('loginError');
+      errEl.style.display = 'none';
+      
+      originalFetch('/api/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ password: password })
+      })
+      .then(res => {
+        if (res.status === 200) {
+          return res.json();
+        } else {
+          throw new Error('Incorrect credentials');
+        }
+      })
+      .then(res => {
+        localStorage.setItem('admin_token', res.session_token);
+        showApp();
+        loadSiteData();
+        document.getElementById('loginPassword').value = '';
+      })
+      .catch(err => {
+        errEl.textContent = 'Access Denied: Incorrect password.';
+        errEl.style.display = 'block';
+      });
+    }
+
+    function handleLogout() {
+      showLogin();
+    }
+
+    function changePassword(e) {
+      e.preventDefault();
+      const current_password = document.getElementById('pwCurrent').value;
+      const new_password = document.getElementById('pwNew').value;
+      const confirm_password = document.getElementById('pwConfirm').value;
+      
+      if (new_password !== confirm_password) {
+        showToast('New passwords do not match!', true);
+        return;
+      }
+      
+      fetch('/api/change-password', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ current_password, new_password })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          showToast('Password updated successfully!');
+          document.getElementById('passwordForm').reset();
+        } else {
+          showToast('Failed to update password: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Error changing password: ' + err, true);
+      });
+    }
+
+    function loadSiteData() {
+      fetch('/api/content')
+        .then(res => res.json())
+        .then(data => {
+          siteData = data;
+          document.getElementById('statProducts').textContent = data.products.length;
+          document.getElementById('statNews').textContent = data.news.length;
+          renderProducts();
+          renderNews();
+          fillGeneralForm();
+        })
+        .catch(err => {
+          showToast('Failed to load site data: ' + err, true);
+        });
+    }
+
+    // Switch Panel Tabs
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(panel => {
+        panel.classList.remove('active');
+      });
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      document.getElementById(tabId).classList.add('active');
+      event.target.classList.add('active');
+
+      // Update Header Title
+      const titles = {
+        dashboard: 'Dashboard Overview',
+        general: 'General Settings',
+        products: 'Product Registry',
+        news: 'Newsroom Manager',
+        visual: 'Live Visual Editor',
+        media: 'Media Uploader',
+        ai_suite: 'AI Content Suite',
+        traffic: 'AI Traffic & Ads Manager'
+      };
+      document.getElementById('panelTitle').textContent = titles[tabId];
+
+      if (tabId === 'visual') {
+        loadPageInEditor();
+      }
+    }
+
+    // Toast Notification helper
+    function showToast(message, isError = false) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.className = 'toast show' + (isError ? ' error' : '');
+      setTimeout(() => {
+        toast.className = 'toast';
+      }, 4000);
+    }
+
+    // Trigger Rebuild
+    function triggerRebuild() {
+      showToast('Triggering rebuild...');
+      fetch('/api/save-content', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(siteData)
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          showToast('Site compiled successfully!');
+          document.getElementById('buildLogs').value = res.build_log;
+        } else {
+          showToast('Build failed: ' + res.message, true);
+          document.getElementById('buildLogs').value = res.message;
+        }
+      })
+      .catch(err => {
+        showToast('Server rebuild error: ' + err, true);
+      });
+    }
+
+    // FILL GENERAL SETTINGS FORM
+    function fillGeneralForm() {
+      const info = siteData.company_info;
+      document.getElementById('compNameEn').value = info.name_en || '';
+      document.getElementById('compNameZh').value = info.name_zh || '';
+      document.getElementById('compLogoText').value = info.logo_text || '';
+      document.getElementById('compEmail').value = info.email || '';
+      document.getElementById('compPhone').value = info.phone || '';
+      document.getElementById('compMobile').value = info.mobile || '';
+      document.getElementById('compWhatsapp').value = info.whatsapp || '';
+      document.getElementById('compWechat').value = info.wechat || '';
+      document.getElementById('compPort').value = info.port || '';
+      document.getElementById('compAddress').value = info.address || '';
+      
+      // Load API Keys
+      const keys = siteData.api_keys || {};
+      document.getElementById('keyGemini').value = keys.gemini || '';
+      document.getElementById('keyOpenai').value = keys.openai || '';
+      document.getElementById('keyDeepseek').value = keys.deepseek || '';
+
+      // Load Social links
+      document.getElementById('linkYoutube').value = info.youtube_profile || '';
+      document.getElementById('linkInstagram').value = info.instagram_profile || '';
+      document.getElementById('linkFacebook').value = info.facebook_profile || '';
+      document.getElementById('linkLinkedin').value = info.linkedin_profile || '';
+      document.getElementById('linkTiktok').value = info.tiktok_profile || '';
+    }
+
+    function saveGeneral(e) {
+      e.preventDefault();
+      siteData.company_info = {
+        name_en: document.getElementById('compNameEn').value,
+        name_zh: document.getElementById('compNameZh').value,
+        logo_text: document.getElementById('compLogoText').value,
+        email: document.getElementById('compEmail').value,
+        phone: document.getElementById('compPhone').value,
+        mobile: document.getElementById('compMobile').value,
+        whatsapp: document.getElementById('compWhatsapp').value,
+        wechat: document.getElementById('compWechat').value,
+        port: document.getElementById('compPort').value,
+        address: document.getElementById('compAddress').value,
+        youtube_profile: document.getElementById('linkYoutube').value,
+        instagram_profile: document.getElementById('linkInstagram').value,
+        facebook_profile: document.getElementById('linkFacebook').value,
+        linkedin_profile: document.getElementById('linkLinkedin').value,
+        tiktok_profile: document.getElementById('linkTiktok').value
+      };
+
+      siteData.api_keys = {
+        gemini: document.getElementById('keyGemini').value,
+        openai: document.getElementById('keyOpenai').value,
+        deepseek: document.getElementById('keyDeepseek').value
+      };
+      
+      triggerRebuild();
+    }
+
+    // PRODUCTS MANAGEMENT
+    function renderProducts() {
+      const container = document.getElementById('productsListContainer');
+      container.innerHTML = '';
+      
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const date = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const localNowStr = `${year}-${month}-${date} ${hours}:${minutes}`;
+
+      siteData.products.forEach((p, idx) => {
+        let statusBadge = `<span style="background: rgba(140, 219, 179, 0.2); color: var(--success); padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">🟢 Published</span>`;
+        if (p.publish_time) {
+          if (p.publish_time > localNowStr) {
+            statusBadge = `<span style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">⏳ Scheduled (${p.publish_time})</span>`;
+          } else {
+            statusBadge = `<span style="background: rgba(140, 219, 179, 0.2); color: var(--success); padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">🟢 Published</span>`;
+          }
+        }
+
+        const row = document.createElement('div');
+        row.className = 'list-item-row';
+        row.innerHTML = `
+          <div class="list-item-info">
+            <img src="${p.image}" alt="${p.name}">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <strong style="font-size:1.1rem;">${p.name}</strong>
+                ${statusBadge}
+              </div>
+              <span style="color:var(--text-muted); font-size:0.85rem;">Category: ${p.category} | Tag: ${p.tag}</span>
+            </div>
+          </div>
+          <div class="list-item-actions">
+            <button class="btn btn-secondary" onclick="editProduct(${idx})">Edit</button>
+            <button class="btn btn-danger" onclick="deleteProduct(${idx})">Delete</button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function openProductModal() {
+      document.getElementById('prodEditIdx').value = '-1';
+      document.getElementById('productForm').reset();
+      document.getElementById('productModalTitle').textContent = 'Add New Product';
+      document.getElementById('productModal').classList.add('show');
+    }
+
+    function closeProductModal() {
+      document.getElementById('productModal').classList.remove('show');
+    }
+
+    function saveProduct(e) {
+      e.preventDefault();
+      const idx = parseInt(document.getElementById('prodEditIdx').value);
+      const publishTimeRaw = document.getElementById('prodPublishTime').value;
+      const publishTime = publishTimeRaw ? publishTimeRaw.replace('T', ' ') : "";
+
+      const prod = {
+        id: document.getElementById('prodId').value,
+        name: document.getElementById('prodName').value,
+        category: document.getElementById('prodCategory').value,
+        tag: document.getElementById('prodTag').value,
+        publish_time: publishTime,
+        image: document.getElementById('prodImage').value,
+        features: document.getElementById('prodFeatures').value.split('\n').filter(l => l.trim() !== '')
+      };
+
+      if (idx === -1) {
+        siteData.products.push(prod);
+      } else {
+        siteData.products[idx] = prod;
+      }
+      
+      closeProductModal();
+      renderProducts();
+      triggerRebuild();
+    }
+
+    function editProduct(idx) {
+      const p = siteData.products[idx];
+      document.getElementById('prodEditIdx').value = idx;
+      document.getElementById('prodId').value = p.id;
+      document.getElementById('prodName').value = p.name;
+      document.getElementById('prodCategory').value = p.category;
+      document.getElementById('prodTag').value = p.tag || '';
+      
+      const publishTime = p.publish_time || "";
+      document.getElementById('prodPublishTime').value = publishTime ? publishTime.replace(' ', 'T') : "";
+      
+      document.getElementById('prodImage').value = p.image;
+      document.getElementById('prodFeatures').value = p.features.join('\n');
+      document.getElementById('prodMediaUploadStatus').textContent = '';
+      
+      document.getElementById('productModalTitle').textContent = 'Edit Product';
+      document.getElementById('productModal').classList.add('show');
+    }
+
+    function uploadProductMedia(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const statusDiv = document.getElementById('prodMediaUploadStatus');
+      statusDiv.style.color = 'var(--text-muted)';
+      statusDiv.textContent = 'Uploading media...';
+
+      fetch('/api/upload-media', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          statusDiv.style.color = 'var(--success)';
+          statusDiv.textContent = `Upload Successful!`;
+          document.getElementById('prodImage').value = res.url;
+          showToast('Media uploaded and path updated!');
+        } else {
+          statusDiv.style.color = 'var(--error)';
+          statusDiv.textContent = 'Upload Failed: ' + res.message;
+        }
+      })
+      .catch(err => {
+        statusDiv.style.color = 'var(--error)';
+        statusDiv.textContent = 'Network upload error: ' + err;
+      });
+    }
+
+    function deleteProduct(idx) {
+      if (confirm('Are you sure you want to delete this product?')) {
+        siteData.products.splice(idx, 1);
+        renderProducts();
+        triggerRebuild();
+      }
+    }
+
+    // NEWSROOM ARTICLES MANAGEMENT
+    function renderNews() {
+      const container = document.getElementById('newsListContainer');
+      container.innerHTML = '';
+      
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const date = String(now.getDate()).padStart(2, '0');
+      const hours = String(now.getHours()).padStart(2, '0');
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const localNowStr = `${year}-${month}-${date} ${hours}:${minutes}`;
+
+      siteData.news.forEach((n, idx) => {
+        let statusBadge = `<span style="background: rgba(140, 219, 179, 0.2); color: var(--success); padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">🟢 Published</span>`;
+        if (n.publish_time) {
+          if (n.publish_time > localNowStr) {
+            statusBadge = `<span style="background: rgba(251, 191, 36, 0.2); color: #fbbf24; padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">⏳ Scheduled (${n.publish_time})</span>`;
+          } else {
+            statusBadge = `<span style="background: rgba(140, 219, 179, 0.2); color: var(--success); padding: 3px 8px; border-radius: 12px; font-weight: bold; font-size: 0.75rem; margin-left: 8px;">🟢 Published</span>`;
+          }
+        }
+
+        const row = document.createElement('div');
+        row.className = 'list-item-row';
+        row.innerHTML = `
+          <div class="list-item-info">
+            <img src="${n.image}" alt="${n.title}">
+            <div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <strong style="font-size:1.1rem;">${n.title}</strong>
+                ${statusBadge}
+              </div>
+              <span style="color:var(--text-muted); font-size:0.85rem;">Date: ${n.date} | Category: ${n.category}</span>
+            </div>
+          </div>
+          <div class="list-item-actions">
+            <button class="btn btn-secondary" onclick="editNews(${idx})">Edit</button>
+            <button class="btn btn-danger" onclick="deleteNews(${idx})">Delete</button>
+          </div>
+        `;
+        container.appendChild(row);
+      });
+    }
+
+    function openNewsModal() {
+      document.getElementById('newsEditIdx').value = '-1';
+      document.getElementById('newsForm').reset();
+      document.getElementById('newsModalTitle').textContent = 'Add New Article';
+      document.getElementById('newsModal').classList.add('show');
+    }
+
+    function closeNewsModal() {
+      document.getElementById('newsModal').classList.remove('show');
+    }
+
+    // ON-PAGE VISUAL EDITOR IFRAME LOGIC
+    function loadPageInEditor() {
+      const filename = document.getElementById('pageSelect').value;
+      const iframe = document.getElementById('visualIframe');
+      
+      // Load target page with cache bust
+      iframe.src = filename + '?t=' + Date.now();
+      
+      iframe.onload = () => {
+        const doc = iframe.contentDocument || iframe.contentWindow.document;
+        
+        // Inject Outline Highlight CSS
+        const style = doc.createElement('style');
+        style.textContent = `
+          [contenteditable="true"]:hover {
+            outline: 2px dashed var(--primary, #007aff) !important;
+            background-color: rgba(0, 122, 255, 0.05) !important;
+          }
+          [contenteditable="true"]:focus {
+            outline: 2px solid var(--primary, #007aff) !important;
+            background-color: rgba(0, 122, 255, 0.08) !important;
+          }
+        `;
+        doc.head.appendChild(style);
+        
+        // Bind contenteditable
+        const editables = doc.querySelectorAll('h1, h2, h3, h4, h5, h6, p, span, a, li, button');
+        editables.forEach(el => {
+          // Prevent navigation
+          if (el.tagName === 'A') {
+            el.addEventListener('click', (e) => {
+              e.preventDefault();
+              e.stopPropagation();
+            });
+          }
+          el.setAttribute('contenteditable', 'true');
+          el.addEventListener('focus', () => {
+            window.activeEditableElement = el;
+            const tag = el.tagName;
+            const sample = el.textContent.trim().substring(0, 20);
+            document.getElementById('aiActiveElementText').textContent = `Selected: <${tag}> "${sample}..."`;
+          });
+        });
+        
+        // Handle images
+        const images = doc.querySelectorAll('img');
+        images.forEach(img => {
+          img.style.cursor = 'pointer';
+          img.title = 'Click to select / Double-click to edit path';
+          img.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.activeEditableElement = img;
+            const src = img.getAttribute('src') || '';
+            const filename = src.split('/').pop();
+            document.getElementById('aiActiveElementText').textContent = `Selected: <IMG> "${filename}"`;
+          });
+          img.addEventListener('dblclick', () => {
+            const newSrc = prompt('Enter new image filepath (e.g. images/my_bento.jpg):', img.getAttribute('src'));
+            if (newSrc) {
+              img.setAttribute('src', newSrc);
+            }
+          });
+        });
+
+        // Handle videos
+        const videos = doc.querySelectorAll('video');
+        videos.forEach(vid => {
+          vid.style.cursor = 'pointer';
+          vid.title = 'Click to select';
+          vid.addEventListener('click', (e) => {
+            e.stopPropagation();
+            window.activeEditableElement = vid;
+            const src = vid.getAttribute('src') || '';
+            const filename = src.split('/').pop();
+            document.getElementById('aiActiveElementText').textContent = `Selected: <VIDEO> "${filename}"`;
+          });
+        });
+      };
+    }
+
+    function saveVisualPage() {
+      const iframe = document.getElementById('visualIframe');
+      const doc = iframe.contentDocument || iframe.contentWindow.document;
+      
+      // Clone DOM to clean editable hooks
+      const clone = doc.cloneNode(true);
+      
+      // Clean contenteditable attributes
+      clone.querySelectorAll('[contenteditable="true"]').forEach(node => {
+        node.removeAttribute('contenteditable');
+      });
+      
+      // Clean injected styles
+      clone.querySelectorAll('style').forEach(style => {
+        if (style.textContent.includes('[contenteditable="true"]:hover')) {
+          style.remove();
+        }
+      });
+      
+      const cleanHtml = '<!DOCTYPE html>\n' + clone.documentElement.outerHTML;
+      const filename = document.getElementById('pageSelect').value;
+
+      showToast('Saving visual edits...');
+      
+      fetch('/api/save-page', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ filename, html: cleanHtml })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          showToast('Page layout saved successfully!');
+          loadPageInEditor(); // Refresh
+        } else {
+          showToast('Error saving visual edits: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Saving failed: ' + err, true);
+      });
+    }
+
+    function saveNews(e) {
+      e.preventDefault();
+      const idx = parseInt(document.getElementById('newsEditIdx').value);
+      const publishTimeRaw = document.getElementById('newsPublishTime').value;
+      const publishTime = publishTimeRaw ? publishTimeRaw.replace('T', ' ') : "";
+
+      const art = {
+        filename: document.getElementById('newsFilename').value,
+        title: document.getElementById('newsTitle').value,
+        category: document.getElementById('newsCategory').value,
+        date: document.getElementById('newsDate').value,
+        sitemap_date: document.getElementById('newsSitemapDate').value,
+        publish_time: publishTime,
+        image: document.getElementById('newsImage').value,
+        alt: document.getElementById('newsAlt').value,
+        summary: document.getElementById('newsSummary').value,
+        introduction: document.getElementById('newsIntro').value,
+        body: document.getElementById('newsBody').value
+      };
+
+      if (idx === -1) {
+        siteData.news.push(art);
+      } else {
+        siteData.news[idx] = art;
+      }
+      
+      closeNewsModal();
+      renderNews();
+      triggerRebuild();
+    }
+
+    function editNews(idx) {
+      const n = siteData.news[idx];
+      document.getElementById('newsEditIdx').value = idx;
+      document.getElementById('newsFilename').value = n.filename;
+      document.getElementById('newsTitle').value = n.title;
+      document.getElementById('newsCategory').value = n.category;
+      document.getElementById('newsDate').value = n.date;
+      document.getElementById('newsSitemapDate').value = n.sitemap_date;
+      
+      const publishTime = n.publish_time || "";
+      document.getElementById('newsPublishTime').value = publishTime ? publishTime.replace(' ', 'T') : "";
+      
+      document.getElementById('newsImage').value = n.image;
+      document.getElementById('newsAlt').value = n.alt || '';
+      document.getElementById('newsSummary').value = n.summary;
+      document.getElementById('newsIntro').value = n.introduction || '';
+      document.getElementById('newsBody').value = n.body;
+      document.getElementById('newsMediaUploadStatus').textContent = '';
+      
+      document.getElementById('newsModalTitle').textContent = 'Edit Article';
+      document.getElementById('newsModal').classList.add('show');
+    }
+
+    function uploadNewsMedia(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const statusDiv = document.getElementById('newsMediaUploadStatus');
+      statusDiv.style.color = 'var(--text-muted)';
+      statusDiv.textContent = 'Uploading image...';
+
+      fetch('/api/upload-media', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          statusDiv.style.color = 'var(--success)';
+          statusDiv.textContent = `Upload Successful!`;
+          document.getElementById('newsImage').value = res.url;
+          showToast('Image uploaded and path updated!');
+        } else {
+          statusDiv.style.color = 'var(--error)';
+          statusDiv.textContent = 'Upload Failed: ' + res.message;
+        }
+      })
+      .catch(err => {
+        statusDiv.style.color = 'var(--error)';
+        statusDiv.textContent = 'Network upload error: ' + err;
+      });
+    }
+
+    function deleteNews(idx) {
+      if (confirm('Are you sure you want to delete this article?')) {
+        siteData.news.splice(idx, 1);
+        renderNews();
+        triggerRebuild();
+      }
+    }
+
+    // MEDIA ASSETS UPLOADS
+    function handleMediaUpload(input) {
+      const file = input.files[0];
+      if (!file) return;
+
+      const formData = new FormData();
+      formData.append('file', file);
+      
+      const resultDiv = document.getElementById('mediaUploadResult');
+      resultDiv.style.color = 'var(--text-muted)';
+      resultDiv.textContent = 'Uploading asset...';
+
+      fetch('/api/upload-media', {
+        method: 'POST',
+        body: formData
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          resultDiv.style.color = 'var(--success)';
+          resultDiv.textContent = `Upload Successful! File path: ${res.url}`;
+          showToast('Media uploaded successfully!');
+        } else {
+          resultDiv.style.color = 'var(--error)';
+          resultDiv.textContent = 'Upload Failed: ' + res.message;
+        }
+      })
+      .catch(err => {
+        resultDiv.style.color = 'var(--error)';
+        resultDiv.textContent = 'Network upload error: ' + err;
+      });
+    }
+
+    function toggleLangSelect() {
+      const act = document.getElementById('aiTextAction').value;
+      const group = document.getElementById('langSelectGroup');
+      if (act === 'translate') {
+        group.style.display = 'flex';
+      } else {
+        group.style.display = 'none';
+      }
+    }
+
+    function toggleMediaEngine() {
+      const type = document.getElementById('aiMediaType').value;
+      const select = document.getElementById('aiMediaEngine');
+      select.innerHTML = "";
+      if (type === 'image') {
+        select.innerHTML = `
+          <option value="dalle">OpenAI DALL-E 3</option>
+          <option value="midjourney">Midjourney v6 API</option>
+        `;
+      } else {
+        select.innerHTML = `
+          <option value="runway">Runway Gen-3</option>
+          <option value="seedance">ByteDance Seedance 2.5</option>
+        `;
+      }
+    }
+
+    function runAIText() {
+      const text = document.getElementById('aiInputText').value;
+      const action = document.getElementById('aiTextAction').value;
+      const prompt = document.getElementById('aiTextPrompt').value;
+      const lang = document.getElementById('aiTargetLang').value;
+      
+      if (!text.trim()) {
+        showToast('Please enter input text.', true);
+        return;
+      }
+      
+      showToast('Running AI writing suite...');
+      const endpoint = action === 'translate' ? '/api/ai/translate' : '/api/ai/edit-text';
+      const bodyPayload = action === 'translate' ? { text, lang } : { text, prompt };
+      
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyPayload)
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          document.getElementById('aiOutputText').value = res.text;
+          showToast('AI copywriting generation complete!');
+        } else {
+          showToast('AI optimization failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function runAIMedia() {
+      const prompt = document.getElementById('aiMediaPrompt').value;
+      const type = document.getElementById('aiMediaType').value;
+      
+      if (!prompt.trim()) {
+        showToast('Please enter a creative prompt description.', true);
+        return;
+      }
+      
+      showToast('Generating AI media asset...');
+      const endpoint = type === 'image' ? '/api/ai/generate-image' : '/api/ai/generate-video';
+      
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          const container = document.getElementById('aiMediaContainer');
+          const resultDiv = document.getElementById('aiMediaResult');
+          const urlText = document.getElementById('aiMediaUrl');
+          
+          container.innerHTML = "";
+          resultDiv.style.display = 'block';
+          urlText.textContent = `Asset URL: ${res.url}`;
+          
+          if (type === 'image') {
+            container.innerHTML = `<img s` + `rc="${res.url}" style="max-width: 100%; height: auto; object-fit: contain;">`;
+          } else {
+            container.innerHTML = `<video s` + `rc="${res.url}" style="max-width: 100%; height: auto;" autoplay loop muted controls></video>`;
+          }
+          showToast('AI media asset generated!');
+        } else {
+          showToast('Media generation failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Media network error: ' + err, true);
+      });
+    }
+
+    // Visual AI Assistant JS Routines
+    function applyVisualTemplate() {
+      const tmpl = document.getElementById('aiVisualTemplate').value;
+      const customPrompt = document.getElementById('aiVisualCustomPrompt');
+      
+      const templates = {
+        polish: "Polishing and SEO optimizing B2B copy. Emphasize manufacturer authority, Disney FAMA & ISO 9001 quality.",
+        technical: "Expand this copy with technical QC parameters: Disney FAMA W128-4829-1, FDA 21 CFR, LFGB food-contact safety, airtight silicone seals, and -20°C~120°C temperature tolerance.",
+        certify: "Integrate Disney FAMA, SEDEX SMETA 4-Pillar, Coca-Cola SGP, and ISO 9001 factory audit trust signals.",
+        translate_es: "Translate this entire text element into Latin Spanish.",
+        translate_de: "Translate this entire text element into German.",
+        img_bento: "Close-up macro photography of natural wheat straw composite material showing organic bio-fiber flecks.",
+        img_factory: "A clean high-speed automated injection molding workshop producing eco bento boxes.",
+        vid_conveyor: "A looping 4K background video loop of automated injection molding and robotic arm stacking in action."
+      };
+      
+      if (tmpl && templates[tmpl]) {
+        customPrompt.value = templates[tmpl];
+      }
+    }
+
+    function runVisualAIText() {
+      if (!window.activeEditableElement) {
+        showToast('Please click and select a text element inside the page editor first.', true);
+        return;
+      }
+      
+      const tag = window.activeEditableElement.tagName;
+      if (tag === 'IMG' || tag === 'VIDEO') {
+        showToast('Selected element is media. Please select a text block to polish text.', true);
+        return;
+      }
+      
+      const currentText = window.activeEditableElement.textContent;
+      const template = document.getElementById('aiVisualTemplate').value;
+      const customInstructions = document.getElementById('aiVisualCustomPrompt').value;
+      
+      showToast('Polishing text with AI...');
+      
+      // Determine if we need to call translate or edit-text
+      const isTranslate = template.startsWith('translate_') || customInstructions.toLowerCase().includes('translate');
+      const endpoint = isTranslate ? '/api/ai/translate' : '/api/ai/edit-text';
+      
+      let lang = 'es';
+      if (template === 'translate_de') lang = 'de';
+      
+      const bodyPayload = isTranslate ? { text: currentText, lang } : { text: currentText, prompt: customInstructions };
+      
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(bodyPayload)
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          window.activeEditableElement.innerHTML = res.text;
+          showToast('Text optimized and updated in editor!');
+          document.getElementById('aiActiveElementText').textContent = `Selected: <${tag}> "${res.text.substring(0, 20)}..."`;
+        } else {
+          showToast('AI editing failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function runVisualAIMedia(type) {
+      if (!window.activeEditableElement) {
+        showToast('Please select a media element (image or video) inside the page editor first.', true);
+        return;
+      }
+      
+      const tag = window.activeEditableElement.tagName;
+      if (type === 'image' && tag !== 'IMG') {
+        showToast('Selected element is not an image tag.', true);
+        return;
+      }
+      if (type === 'video' && tag !== 'VIDEO') {
+        showToast('Selected element is not a video tag.', true);
+        return;
+      }
+      
+      const promptText = document.getElementById('aiVisualCustomPrompt').value;
+      if (!promptText.trim()) {
+        showToast('Please enter a creative prompt description in custom instructions first.', true);
+        return;
+      }
+      
+      showToast(`Generating ${type} with AI...`);
+      const endpoint = type === 'image' ? '/api/ai/generate-image' : '/api/ai/generate-video';
+      
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt: promptText })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          window.activeEditableElement.setAttribute('src', res.url);
+          showToast(`${type} replaced inside editor!`);
+          document.getElementById('aiActiveElementText').textContent = `Selected: <${tag}> "${res.url.split('/').pop()}"`;
+        } else {
+          showToast(`${type} generation failed: ` + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Media network error: ' + err, true);
+      });
+    }
+
+    // AI News Scheduler JS Routine
+    function runAIAgentNews() {
+      const provider = document.getElementById('agentProvider').value;
+      const token = document.getElementById('agentToken').value;
+      const startDate = document.getElementById('agentStartDate').value;
+      const frequency = document.getElementById('agentFrequency').value;
+      const batchCount = document.getElementById('agentBatchCount').value;
+      const keywords = document.getElementById('agentKeywords').value;
+      
+      if (!keywords.trim()) {
+        showToast('Please enter target keywords/topic focus.', true);
+        return;
+      }
+      
+      showToast(`Connecting to ${provider} & generating batch...`);
+      
+      fetch('/api/ai/schedule-news', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          provider, token, startDate, frequency, batchCount, keywords
+        })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          showToast(res.message);
+          loadSiteData(); // Reload table
+        } else {
+          showToast('Scheduler failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function runAIAdGen() {
+      const product = document.getElementById('adProduct').value;
+      const keywords = document.getElementById('adKeywords').value;
+      const audience = document.getElementById('adAudience').value;
+      
+      if (!product.trim() || !keywords.trim()) {
+        showToast('Please fill in product name and keywords.', true);
+        return;
+      }
+      
+      showToast('Generating B2B ad copy targeting multiple channels...');
+      
+      fetch('/api/ai/generate-ads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ product, keywords, audience })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          document.getElementById('adOutputText').value = res.ads;
+          showToast('Multi-channel ad copy campaigns generated!');
+        } else {
+          showToast('Ad generation failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function runAIPitchGen() {
+      const partnerUrl = document.getElementById('pitchUrl').value;
+      const contactName = document.getElementById('pitchContact').value;
+      const context = document.getElementById('pitchContext').value;
+      
+      if (!partnerUrl.trim()) {
+        showToast('Please enter a target partner website.', true);
+        return;
+      }
+      
+      showToast('Generating guest post & link pitch email...');
+      
+      fetch('/api/ai/generate-pitch', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ partnerUrl, contactName, context })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          document.getElementById('pitchOutputText').value = res.pitch;
+          showToast('Outreach pitch copy generated!');
+        } else {
+          showToast('Pitch generation failed: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function searchBacklinks() {
+      const domain = document.getElementById('backlinkDomain').value;
+      if (!domain.trim()) {
+        showToast('Please enter a target domain.', true);
+        return;
+      }
+      
+      showToast('Searching for optimal backlink opportunities...');
+      
+      fetch('/api/ai/find-backlinks', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ domain })
+      })
+      .then(res => res.json())
+      .then(res => {
+        if (res.status === 'success') {
+          const body = document.getElementById('backlinkTableBody');
+          body.innerHTML = "";
+          
+          res.recommendations.forEach(r => {
+            const tr = document.createElement('tr');
+            tr.style.borderBottom = '1px solid var(--border)';
+            tr.innerHTML = `
+              <td style="padding: 12px 10px; font-weight: 600; color: var(--primary);">${r.site}</td>
+              <td style="padding: 12px 10px; color: var(--text-muted);">${r.category}</td>
+              <td style="padding: 12px 10px; text-align: center;"><span style="background: rgba(140, 219, 179, 0.2); color: var(--success); padding: 3px 8px; border-radius: 12px; font-weight: bold;">${r.authority} / 100</span></td>
+              <td style="padding: 12px 10px; font-size: 0.85rem; max-width: 300px;">${r.reason}</td>
+              <td style="padding: 12px 10px; text-align: center;">
+                <button class="btn btn-secondary btn-sm" onclick="selectBacklinkPartner('${r.site}')">⚡ Pitch</button>
+              </td>
+            `;
+            body.appendChild(tr);
+          });
+          
+          document.getElementById('backlinkResults').style.display = 'block';
+          showToast('Backlink opportunities retrieved!');
+        } else {
+          showToast('Failed to fetch backlinks: ' + res.message, true);
+        }
+      })
+      .catch(err => {
+        showToast('Network error: ' + err, true);
+      });
+    }
+
+    function selectBacklinkPartner(partnerSite) {
+      document.getElementById('pitchUrl').value = partnerSite;
+      document.getElementById('pitchContact').value = 'Editorial Director';
+      document.getElementById('pitchContext').value = `Proposal for an analytical guest article about bio-based wheat straw composite testing and lunchbox food contact safety.`;
+      showToast(`Selected ${partnerSite} as outreach target!`);
+      document.getElementById('pitchUrl').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function followSocial(platform) {
+      const info = siteData.company_info || {};
+      let url = "#";
+      if (platform === 'linkedin') url = info.linkedin_profile || 'https://www.linkedin.com/company/naikegifts';
+      else if (platform === 'facebook') url = info.facebook_profile || 'https://www.facebook.com/naikegifts';
+      else if (platform === 'youtube') url = info.youtube_profile || 'https://www.youtube.com/@naikegifts';
+      else if (platform === 'instagram') url = info.instagram_profile || 'https://www.instagram.com/naikegifts';
+      else if (platform === 'tiktok') url = info.tiktok_profile || 'https://www.tiktok.com/@naikegifts';
+      else if (platform === 'gemini') url = 'https://gemini.google.com';
+      else if (platform === 'chatgpt') url = 'https://chatgpt.com';
+      
+      window.open(url, '_blank');
+    }
+  </script>
+</body>
+</html>

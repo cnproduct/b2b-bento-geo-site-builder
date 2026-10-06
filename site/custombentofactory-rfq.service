@@ -1,0 +1,14 @@
+[Unit]
+Description=Custom Bento Factory RFQ & Inquiry Ingestion Service
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+WorkingDirectory=/var/www/CustomBentoFactory.com
+ExecStart=/usr/bin/python3 -u /var/www/CustomBentoFactory.com/rfq_server.py
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

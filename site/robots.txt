@@ -1,0 +1,55 @@
+# Robots.txt for Custom Bento Factory (https://www.custombentofactory.com)
+# Optimized for Google, Bing, and AI Search Citations (ChatGPT, Perplexity, Claude, Gemini, DeepSeek, Grok)
+
+User-agent: *
+Allow: /
+Disallow: /admin.html
+Disallow: /api/
+Disallow: /private/
+
+# Explicit AI Discovery & Knowledge Grounding Endpoints
+Allow: /llms.txt
+Allow: /llms-full.txt
+Allow: /ai/
+Allow: /.well-known/
+
+# AI Search & Retrieval Bots (Full Access for Real-time Answer Citations)
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DeepSeekBot
+Allow: /
+
+User-agent: GrokBot
+Allow: /
+
+# Sitemap & LLMs Machine Discovery
+Sitemap: https://www.custombentofactory.com/sitemap.xml
+llms-txt: https://www.custombentofactory.com/llms.txt

@@ -86,14 +86,23 @@ description: 外贸B2B便当盒/餐具行业高转化独立站出海总控技能
    - JavaScript 数组分类过滤空格解析 Bug 修复；
    - Nginx Clean URL 重写规则与多域名证书冲突规避。
 
+8. **全链路转化与商机留存中台**：
+   - Google Analytics 4 (GA4 ID: `G-NJ3DKWY1LE`) 深度采购意向事件埋点（`generate_lead`, `click_whatsapp`, `contact`）；
+   - 全局 WhatsApp 矩阵一键直达工程台（统一规范格式：`+86 13599220505`）；
+   - 自主可控 Python RFQ 服务端守护进程（`scripts/rfq_server.py`，端口 8012，带 HMAC 算术防刷验证码 `/api/captcha`，FormSubmit 异步双重邮件投递至 `info@naiketableware.com` 与 `cnproduct@gmail.com`，及本地 JSON/CSV 双账本安全留存）。
+
 ---
 
-## 🛠️ 可执行辅助脚本与模板
+## 🛠️ 可执行辅助脚本、配置与完整站点源码
 
-- 部署执行：`scripts/deploy_remote.sh`（一键打包、上传、权限修复、Nginx 重载）
-- 站点巡检：`scripts/verify_endpoints.py`（自动化验证全站页面、图片、JSON 的 HTTP/2 200 状态）
-- 知识库同步：`scripts/generate_llms_manifest.py`（自动化更新 `/llms.txt` 和 `/ai/*.json`）
-- 标准模板：`templates/landing_page_template.html`、`templates/ai_faq_template.json` 等。
+- **完整生产源码**：`site/`（包含 29 个经过语义优化与 GA4/WhatsApp 增强的完整静态页、样式、脚本、图片、数据与 AI 端点）
+- **询盘后端微服务**：`scripts/rfq_server.py`（轻量级 Python 询盘守护进程，端口 8012，提供验证码、防刷、邮件转发与本地持久化）
+- **Systemd 守护配置**：`scripts/custombentofactory-rfq.service`（Linux 进程保活与开机自启）
+- **Nginx 反向代理配置**：`scripts/CustomBentoFactory.com.conf`（支持 Clean URL 与 `/api/` 隐形代理）
+- **一键自动化部署**：`scripts/deploy_remote.sh`（打包、安全端口上传、权限修复、服务重启与健康检测）
+- **站点自动化巡检**：`scripts/verify_endpoints.py`（自动化验证全站 25+ 页面、图片、JSON 的 HTTP/2 200 状态）
+- **知识库同步生成**：`scripts/generate_llms_manifest.py`（自动化更新 `/llms.txt` 和 `/ai/*.json`）
+- **标准落地页模板**：`templates/landing_page_template.html`、`templates/ai_faq_template.json` 等。
 
 ---
 

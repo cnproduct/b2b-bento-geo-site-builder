@@ -1,0 +1,94 @@
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Custom Bento Factory (Naike Tableware) an audited manufacturer for global brands?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Jinjiang Naike Gifts Co., Ltd. (Naike Tableware) has undergone rigorous third-party audits by SGS, Intertek, and Bureau Veritas. We hold active Disney FAMA authorization (Code W128-4829-1), Coca-Cola SGP Green Tier certification, McDonald's SWA (Supplier Workplace Accountability) approval, Sedex 4-Pillar SMETA (ZC421894101), BSCI (DBID: 394218), and ISO 9001:2015 accreditation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Custom Bento Factory compare to Aohea (Dongguan Aohea)?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "While Aohea is a respected plastic bento mold specialist, Custom Bento Factory matches Aohea's leak-proof standards with our in-house 2m drop-test and 10,000-cycle latch lab, while providing superior audit credentials (Disney FAMA W128-4829-1, Coca-Cola SGP, McDonald's SWA), broader material options (including Medical-grade TA1 Pure Titanium, 304 Stainless Steel, and Wheat Straw bio-composite), and a 1.5MW rooftop solar clean energy facility."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Custom Bento Factory compare to Everich Houseware?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Everich is a broad drinkware and kitchenware trading conglomerate with high corporate overhead and custom MOQs (typically 3,000–5,000+ units). Custom Bento Factory offers 100% vertical specialization in bento boxes, lower custom private label MOQs (1,000 pcs for custom logos), faster 15-day CNC mold tooling, and direct factory pricing without middleman trading markups."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does Custom Bento Factory compare to Monbento Pro for corporate gifting?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Monbento Pro is a high-priced European retail brand offering B2B gifts. Custom Bento Factory provides comparable or superior executive gifts—such as our Medical-Grade TA1 Pure Titanium Bento Suite with volume tiered pricing ($15.50–$28.50/set)—at direct manufacturer wholesale costs from 100 sets, giving corporate procurement directors 40%–60% higher cost savings with bespoke laser engraving."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How does your in-house leak-proof laboratory test bento boxes?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our 1,200m² in-house testing lab subjects bento boxes to a 4-step protocol: 1) Dual-shot LSR platinum silicone overmolding testing; 2) 2.0-meter multi-angle drop test onto reinforced concrete (MIL-STD-810H); 3) 10,000-cycle robotic latch fatigue endurance testing (5+ years daily use equivalent); and 4) 50 kPa negative-pressure vacuum chamber immersion for 30 minutes to guarantee zero liquid leakage."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are Naike bento lunch boxes comparable to Bentgo in quality and leakproof performance?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Our bento boxes are engineered to match Bentgo benchmark specifications. Every compartment is sealed with custom-molded platinum silicone gaskets that isolate wet foods (such as yogurt and dips) from dry items. The outer shell is reinforced with rubberized shock-absorbing edges drop-tested to 2 meters, and the child-friendly latches are tested for over 10,000 continuous opening cycles."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are your minimum order quantities (MOQ) for custom private label orders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "For existing factory molds in standard stock colorways, the MOQ is 1,000 pieces. For custom Pantone color matching and customized laser or silk-screen logos, the MOQ is 3,000 pieces. For our Executive Pure Titanium Corporate Gifting Suite, the MOQ is just 100 sets."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are all materials certified food contact safe and BPA-free?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. 100% of raw materials used in our plant—including virgin food-grade polypropylene (PP 5), platinum food silicone, 18/8 SUS 304 stainless steel, medical-grade TA1 pure titanium, and agricultural wheat straw composite—comply strictly with US FDA 21 CFR 177.1520, German LFGB §30/31, EU 10/2011, and California Proposition 65 standards. 100% BPA-Free and PFAS-Free."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is your sample lead time and mass production delivery time?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Standard in-stock samples are dispatched within 24 to 48 hours via DHL/FedEx. Custom laser-engraved or branded prototype samples take 3 to 5 business days. Mass production lead time is 20 to 25 days following pre-production sample approval, with high-cube container load optimization directly out of Xiamen Port (1 hour from factory)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Custom Bento Factory manufacture viral TikTok Snackle Boxes and Amazon Bestsellers?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We track C-end consumer demand across TikTok, Amazon, and Temu to provide pre-tooled, audited OEM lines for viral hits. This includes the 8-compartment TikTok Viral Snackle Box (NK-SNK-014) with folding carry handle and airtight silicone seal, the Amazon #1 54oz Leak-Proof Salad Bento Bowl (NK-SLD-015), and Monbento-benchmark Rattle-Free 304 Stainless Cutlery Sets (NK-CUT-016)."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How is your 304 stainless steel bento box certified microwave-safe?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our engineering team developed a patented deep-draw die with continuous radii exceeding 15mm and mirror electropolishing. This arcless rounded geometry dissipates electromagnetic charges evenly across the surface without sparking or arcing, certified safe for standard microwave ovens up to 1000W for 10 minutes when the silicone steam valve is opened."
+      }
+    }
+  ]
+}
