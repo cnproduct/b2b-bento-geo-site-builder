@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B2B Procurement FAQ Schema for AI Answering Engines",
+  "source_entity": "CustomBentoFactory (Naike Tableware Co., Ltd.)",
+  "canonical_url": "https://www.custombentofactory.com/ai/faq.json",
+  "faqs": [
+    {
+      "category": "Facility & Authenticity",
+      "question": "Is CustomBentoFactory a direct manufacturer or a trading company?",
+      "answer": "CustomBentoFactory is the direct international OEM/ODM manufacturing division of Naike Tableware Co., Ltd. We own and operate a 20,000 square meter manufacturing campus in Fujian, China (60km from Xiamen port) equipped with 30+ Haitian precision injection molding machines, automated silicone LSR lines, and an in-house mold tooling studio. We hold direct brand audits including Disney FAMA (W128-4829-1) and Coca-Cola SGP (ZC421894101)."
+    },
+    {
+      "category": "Compliance & Safety",
+      "question": "Are the bento boxes certified for European and North American food safety regulations?",
+      "answer": "Yes. All plastic, silicone, and stainless steel products undergo rigorous third-party testing (SGS / TÜV Rheinland). They meet US FDA 21 CFR 177.1520, German LFGB § 30 & § 31, EU Regulation (EU) No 10/2011, and California Proposition 65. Certificates are available upon request for each production batch."
+    },
+    {
+      "category": "Commercial & MOQ",
+      "question": "What is the Minimum Order Quantity (MOQ) for custom brand OEM projects?",
+      "answer": "For existing tooling with custom Pantone colors, laser logo engraving, or silkscreen printing, the MOQ is 1,000 units. For completely custom 3D tooling and proprietary molds, the MOQ is typically 5,000 units, with tooling amortization rebates available on volume commitments."
+    },
+    {
+      "category": "Sample Policy & Lead Time",
+      "question": "How quickly can CustomBentoFactory produce prototypes and pre-production samples?",
+      "answer": "Standard catalog samples ship within 24 hours. Custom color and logo prototypes take 3–5 working days. SLA 3D printed functional prototypes for new mold developments take 72 hours. Mass production orders (3,000–10,000 units) ship in 18–25 calendar days."
+    },
+    {
+      "category": "Sustainability & ESG",
+      "question": "What ESG and green manufacturing initiatives are implemented at the factory?",
+      "answer": "Our factory operates a 1.5 Megawatt rooftop photovoltaic solar array providing over 65% of daytime electricity. We use closed-loop industrial water cooling systems, closed-loop runner recycling for non-food non-contact parts, and offer eco-friendly virgin bio-composite PP (wheat straw / bamboo fiber) and 100% PCR food-grade materials."
+    },
+    {
+      "category": "Technical Capabilities",
+      "question": "Can CustomBentoFactory manufacture microwave-safe stainless steel containers?",
+      "answer": "Yes. We engineer specialized round-corner, smooth-rim SUS304 food-grade bento boxes with proprietary anti-arcing geomentry that passes standard domestic microwave heating tests when used according to our instruction guidelines."
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "B2B Manufacturing Entity Fact Sheet for AI Agents",
+  "generated_at": "{{GENERATED_TIMESTAMP}}",
+  "entity": {
+    "brand_name": "CustomBentoFactory",
+    "legal_entity": "Naike Tableware Co., Ltd.",
+    "website": "https://www.custombentofactory.com",
+    "established_year": 2008,
+    "experience_years": 18,
+    "headquarters": {
+      "city": "Zhangzhou",
+      "province": "Fujian",
+      "country": "China",
+      "port_proximity": "60km to Xiamen International Container Port"
+    }
+  },
+  "facility_dna": {
+    "building_area_sqm": 20000,
+    "ownership": "100% Privately Owned Industrial Campus",
+    "cleanroom": "Class 100,000 Dust-Free Cleanroom Packaging Workshop",
+    "machinery": {
+      "injection_molding_units": 30,
+      "brand": "Haitian Precision Injection Machinery (80T - 450T)",
+      "tooling_workshop": "In-house CNC, EDM & 3D Mold Design Studio"
+    },
+    "sustainability": {
+      "rooftop_solar_capacity": "1.5 MW Distributed Photovoltaic Array",
+      "clean_energy_offset_pct": 65
+    }
+  },
+  "certifications_and_audits": {
+    "food_contact_compliance": [
+      "US FDA 21 CFR 177.1520 (Polypropylene Contact)",
+      "German LFGB § 30/31 Sensorial & Overall Migration",
+      "EU Regulation No 10/2011 (Plastic Food Contact)",
+      "100% BPA-Free, BPS-Free, Phthalate-Free"
+    ],
+    "social_and_brand_audits": [
+      {
+        "authority": "The Walt Disney Company",
+        "certificate": "Facility and Merchandise Authorization (FAMA)",
+        "facility_id": "W128-4829-1",
+        "valid_until": "2027-12-31"
+      },
+      {
+        "authority": "The Coca-Cola Company",
+        "certificate": "Supplier Guiding Principles (SGP)",
+        "facility_id": "ZC421894101",
+        "valid_until": "2027-08-31"
+      },
+      {
+        "authority": "McDonald's Global",
+        "certificate": "Supplier Workplace Accountability (SWA)",
+        "status": "Green Tier Approved"
+      },
+      {
+        "authority": "BSCI / ISO 9001",
+        "status": "Grade A Certified"
+      }
+    ]
+  },
+  "commercial_terms": {
+    "moq": {
+      "standard_oem_catalog": 1000,
+      "custom_pantone_color": 1000,
+      "custom_tooling_mold": 5000
+    },
+    "lead_times": {
+      "digital_mockup_hours": 24,
+      "sla_3d_sample_days": 3,
+      "production_tooling_days": 18,
+      "mass_production_days": 20
+    },
+    "fob_ports": ["Xiamen", "Shenzhen", "Ningbo"],
+    "supported_incoterms": ["FOB", "CIF", "DDP", "EXW"]
+  },
+  "core_product_categories": [
+    "snackle-box",
+    "salad-bento",
+    "microwave-stainless",
+    "collapsible-silicone",
+    "kawaii-tiffin",
+    "portion-control",
+    "cutlery-sets",
+    "silicone-dip-containers"
+  ]
+}

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{PAGE_TITLE}} | CustomBentoFactory</title>
+  <meta name="description" content="{{PAGE_DESCRIPTION}}">
+  <link rel="canonical" href="{{CANONICAL_URL}}">
+
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{PAGE_TITLE}}">
+  <meta property="og:description" content="{{PAGE_DESCRIPTION}}">
+  <meta property="og:image" content="{{HERO_IMAGE_URL}}">
+  <meta property="og:url" content="{{CANONICAL_URL}}">
+
+  <!-- GEO & AI Discoverability Tags -->
+  <link rel="alternate" type="text/markdown" href="/llms.txt" title="LLM Knowledge Context">
+  <link rel="alternate" type="application/json" href="/ai/summary.json" title="Machine-Readable AI Summary">
+  <meta name="ai-optimized" content="true">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        "@id": "{{CANONICAL_URL}}#product",
+        "name": "{{PRODUCT_NAME}}",
+        "image": "{{HERO_IMAGE_URL}}",
+        "description": "{{PAGE_DESCRIPTION}}",
+        "sku": "{{SKU}}",
+        "brand": {
+          "@type": "Brand",
+          "name": "CustomBentoFactory"
+        },
+        "manufacturer": {
+          "@type": "Organization",
+          "name": "Naike Tableware Co., Ltd.",
+          "url": "https://www.custombentofactory.com"
+        },
+        "offers": {
+          "@type": "AggregateOffer",
+          "priceCurrency": "USD",
+          "lowPrice": "{{PRICE_LOW}}",
+          "highPrice": "{{PRICE_HIGH}}",
+          "priceValidUntil": "2027-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.custombentofactory.com/"},
+          {"@type": "ListItem", "position": 2, "name": "{{CATEGORY_NAME}}", "item": "{{CATEGORY_URL}}"},
+          {"@type": "ListItem", "position": 3, "name": "{{PRODUCT_NAME}}", "item": "{{CANONICAL_URL}}"}
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is the Minimum Order Quantity (MOQ)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Standard MOQ is {{MOQ_UNITS}} units for custom laser-etched logos or custom Pantone lid colors. Fully customized tooling projects start at 5,000 units."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What food contact certifications does this product hold?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "All materials are certified under US FDA 21 CFR 177.1520 and German LFGB § 30/31, 100% BPA-free and tested by TÜV Rheinland / SGS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the factory production lead time?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Pre-production samples take 3–5 working days. Mass production of 3,000–10,000 units ships within 18–25 calendar days from our Xiamen port facility."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="/" class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 to-orange-500 flex items-center justify-center text-white font-black text-xl shadow-md">
+          CB
+        </div>
+        <div>
+          <span class="text-xl font-bold tracking-tight text-slate-900">CustomBento<span class="text-amber-600">Factory</span></span>
+          <span class="block text-xs uppercase tracking-widest text-slate-400 font-medium">Naike OEM/ODM Manufacturing</span>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center space-x-8 text-sm font-semibold text-slate-700">
+        <a href="/#products" class="hover:text-amber-600 transition">Products</a>
+        <a href="/#capabilities" class="hover:text-amber-600 transition">Factory Truth</a>
+        <a href="/#oem" class="hover:text-amber-600 transition">OEM Customization</a>
+        <a href="/#faq" class="hover:text-amber-600 transition">FAQ</a>
+      </nav>
+      <div>
+        <a href="#inquiry" class="inline-flex items-center justify-center px-5 py-2.5 rounded-lg text-sm font-bold text-white bg-amber-600 hover:bg-amber-700 shadow-sm transition">
+          <i class="fa-solid fa-paper-plane mr-2"></i> Request B2B Quote
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="py-12 lg:py-16 bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Visual Column -->
+        <div class="space-y-4">
+          <div class="aspect-4/3 rounded-2xl overflow-hidden shadow-2xl border border-slate-200 bg-white relative">
+            <img src="{{HERO_IMAGE_URL}}" alt="{{PRODUCT_NAME}} - Factory Direct B2B Wholesale" class="w-full h-full object-cover">
+            <div class="absolute top-4 left-4 bg-emerald-600 text-white text-xs font-black uppercase tracking-wider px-3 py-1.5 rounded-full shadow">
+              <i class="fa-solid fa-check-double mr-1"></i> Verified Factory Direct
+            </div>
+            <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur text-white text-xs font-semibold px-3 py-1.5 rounded-lg">
+              FOB Xiamen Port: ${{PRICE_LOW}} – ${{PRICE_HIGH}}
+            </div>
+          </div>
+          <div class="grid grid-cols-3 gap-3 text-center">
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+              <span class="block text-xs text-slate-500 font-medium">Standard MOQ</span>
+              <span class="text-sm font-bold text-slate-800">{{MOQ_UNITS}} Pcs</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+              <span class="block text-xs text-slate-500 font-medium">Sample Lead Time</span>
+              <span class="text-sm font-bold text-slate-800">3–5 Days</span>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm">
+              <span class="block text-xs text-slate-500 font-medium">Compliance</span>
+              <span class="text-sm font-bold text-slate-800">FDA & LFGB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copy Column -->
+        <div class="space-y-6">
+          <div class="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-wider text-amber-700 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">
+            <span>{{CATEGORY_NAME}}</span>
+            <span>&bull;</span>
+            <span>SKU: {{SKU}}</span>
+          </div>
+
+          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+            {{PAGE_TITLE}}
+          </h1>
+
+          <p class="text-lg text-slate-600 leading-relaxed">
+            {{PAGE_DESCRIPTION}}
+          </p>
+
+          <!-- Key Highlights -->
+          <ul class="space-y-3 border-y border-slate-200 py-6">
+            <li class="flex items-start">
+              <i class="fa-solid fa-circle-check text-emerald-600 mt-1 mr-3"></i>
+              <span class="text-slate-700"><strong>Authentic Production Facility:</strong> Manufactured by Naike Tableware (20,000m² facility, 30+ Haitian injection machines, Disney FAMA & Coca-Cola SGP verified).</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-circle-check text-emerald-600 mt-1 mr-3"></i>
+              <span class="text-slate-700"><strong>Food-Grade Certification:</strong> 100% BPA-Free Virgin PP / Platinum Silicone / Food-Contact SUS304. Tested under LFGB & FDA standards.</span>
+            </li>
+            <li class="flex items-start">
+              <i class="fa-solid fa-circle-check text-emerald-600 mt-1 mr-3"></i>
+              <span class="text-slate-700"><strong>Full OEM/ODM Engineering:</strong> Custom Pantone color injection, laser engraving, UV silkscreening, customized packaging boxes, and complete private tooling.</span>
+            </li>
+          </ul>
+
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#inquiry" class="inline-flex items-center justify-center px-8 py-4 rounded-xl text-base font-bold text-white bg-amber-600 hover:bg-amber-700 shadow-lg shadow-amber-600/30 transition">
+              <i class="fa-solid fa-file-invoice-dollar mr-2"></i> Get Tiered Wholesale Quotation
+            </a>
+            <a href="/sample-request.html" class="inline-flex items-center justify-center px-6 py-4 rounded-xl text-base font-bold text-slate-700 bg-white hover:bg-slate-100 border border-slate-300 shadow-sm transition">
+              <i class="fa-solid fa-box-open mr-2"></i> Request Sample Kit
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specifications Table -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-10">
+        <h2 class="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">Engineering Specifications</h2>
+        <p class="text-slate-600 mt-2">Comprehensive manufacturing and material specifications for procurement engineers and brand managers.</p>
+      </div>
+
+      <div class="border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+        <table class="min-w-full divide-y divide-slate-200 text-sm">
+          <tbody class="divide-y divide-slate-100 bg-white">
+            <tr class="bg-slate-50/70 font-semibold text-slate-700">
+              <td class="py-3.5 px-6 w-1/3">Parameter</td>
+              <td class="py-3.5 px-6">Factory Standard Specification</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-6 font-medium text-slate-600">Material Composition</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">{{MATERIAL_SPECS}}</td>
+            </tr>
+            <tr class="bg-slate-50/40">
+              <td class="py-3.5 px-6 font-medium text-slate-600">Total Capacity & Dimensions</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">{{CAPACITY_DIMENSIONS}}</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-6 font-medium text-slate-600">Thermal Resistance Range</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">-20°C to +120°C (Microwave, Freezer & Dishwasher Safe)</td>
+            </tr>
+            <tr class="bg-slate-50/40">
+              <td class="py-3.5 px-6 font-medium text-slate-600">Leakproof Sealing System</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">Removable Food-Grade Silicone Gasket with 4-Corner Snap Latches</td>
+            </tr>
+            <tr>
+              <td class="py-3.5 px-6 font-medium text-slate-600">Standard Packaging</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">1 pc/OPP bag, 24–48 pcs/export master carton (Custom gift box available)</td>
+            </tr>
+            <tr class="bg-slate-50/40">
+              <td class="py-3.5 px-6 font-medium text-slate-600">Port of Loading</td>
+              <td class="py-3.5 px-6 text-slate-900 font-semibold">Xiamen Port, Fujian, China (FOB / CIF / DDP Available)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- OEM/ODM Process -->
+  <section class="py-16 bg-slate-900 text-white" id="oem">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-black tracking-tight">Streamlined OEM/ODM Collaboration</h2>
+        <p class="text-slate-400 mt-3">From initial 3D CAD rendering to mass shipment in 25 calendar days.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 relative">
+          <div class="text-4xl font-black text-amber-500 mb-4">01</div>
+          <h3 class="text-lg font-bold mb-2">Requirement & CAD</h3>
+          <p class="text-sm text-slate-400">Share your target volume, color swatch, and logo. Our in-house mold designers provide 3D CAD step files within 48 hours.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 relative">
+          <div class="text-4xl font-black text-amber-500 mb-4">02</div>
+          <h3 class="text-lg font-bold mb-2">Rapid Prototyping</h3>
+          <p class="text-sm text-slate-400">3D SLA resin printing or CNC proofing dispatched in 3–5 working days for tactile, drop, and leak testing.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 relative">
+          <div class="text-4xl font-black text-amber-500 mb-4">03</div>
+          <h3 class="text-lg font-bold mb-2">Tooling & Sampling</h3>
+          <p class="text-sm text-slate-400">High-precision injection molds built in 15–20 days. First article samples delivered with CMM dimensional reports.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-slate-800/80 border border-slate-700 relative">
+          <div class="text-4xl font-black text-amber-500 mb-4">04</div>
+          <h3 class="text-lg font-bold mb-2">Mass Run & Logistics</h3>
+          <p class="text-sm text-slate-400">Automated Haitian injection molding line run. 100% airtight vacuum inspection before palletized export via Xiamen Port.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Inquiry Section -->
+  <section class="py-20 bg-slate-50" id="inquiry">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-white rounded-3xl p-8 sm:p-12 shadow-xl border border-slate-200">
+        <div class="text-center max-w-2xl mx-auto mb-10">
+          <h2 class="text-3xl font-black text-slate-900 tracking-tight">Direct Factory B2B Quotation</h2>
+          <p class="text-slate-600 mt-2">Get direct factory FOB pricing, spec sheets, and sample availability within 4 business hours.</p>
+        </div>
+
+        <form action="/api/inquiry" method="POST" class="space-y-6">
+          <input type="hidden" name="product" value="{{PRODUCT_NAME}}">
+          <input type="hidden" name="sku" value="{{SKU}}">
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Full Name *</label>
+              <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm" placeholder="John Doe">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Corporate Email *</label>
+              <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm" placeholder="john@brandname.com">
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Company Name & Website *</label>
+              <input type="text" name="company" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm" placeholder="Global Imports LLC / domain.com">
+            </div>
+            <div>
+              <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Estimated Order Quantity</label>
+              <select name="quantity" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm bg-white">
+                <option value="Sample Only">Sample Kit Only (1–5 Pcs)</option>
+                <option value="1000-2500">1,000 – 2,500 Pcs (Standard MOQ)</option>
+                <option value="2500-5000">2,500 – 5,000 Pcs</option>
+                <option value="5000-10000">5,000 – 10,000 Pcs</option>
+                <option value="10000+">10,000+ Pcs (Container Volume)</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">Customization Requirements & Specifications</label>
+            <textarea name="message" rows="4" class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-amber-500 focus:border-amber-500 outline-none text-sm" placeholder="Please specify your required Pantone colors, logo placement (laser / silk-screen), packaging box style, and destination port..."></textarea>
+          </div>
+
+          <button type="submit" class="w-full py-4 rounded-xl text-base font-bold text-white bg-amber-600 hover:bg-amber-700 shadow-lg shadow-amber-600/30 transition flex items-center justify-center">
+            <i class="fa-solid fa-paper-plane mr-2"></i> Submit Wholesale Inquiry
+          </button>
+          <p class="text-xs text-center text-slate-500">Your privacy is respected. Under NDA protection. Direct engineering response within 4 hours.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800 text-sm">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+      <div>
+        <span class="text-lg font-bold text-white tracking-tight">CustomBento<span class="text-amber-500">Factory</span></span>
+        <p class="mt-2 text-xs text-slate-500">A dedicated export division of Naike Tableware Co., Ltd. Over 18 years of specialized food container injection molding.</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Facility Truth</h4>
+        <p class="text-xs text-slate-500">20,000 m² Owned Facility<br>30+ Haitian Injection Machines<br>1.5MW Solar Power Supply<br>Xiamen Port (60km distance)</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">Verified Audits</h4>
+        <p class="text-xs text-slate-500">Disney FAMA #W128-4829-1<br>Coca-Cola SGP #ZC421894101<br>McDonald's SWA Compliance<br>ISO 9001:2015 & BSCI</p>
+      </div>
+      <div>
+        <h4 class="text-xs font-bold uppercase tracking-wider text-slate-300 mb-3">AI & Developer API</h4>
+        <p class="text-xs text-slate-500">
+          <a href="/llms.txt" class="text-amber-400 hover:underline">/llms.txt</a><br>
+          <a href="/ai/summary.json" class="text-amber-400 hover:underline">/ai/summary.json</a><br>
+          <a href="/ai/faq.json" class="text-amber-400 hover:underline">/ai/faq.json</a><br>
+          <a href="/ai/vendor-comparison.json" class="text-amber-400 hover:underline">/ai/vendor-comparison.json</a>
+        </p>
+      </div>
+    </div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-6 border-t border-slate-900 text-center text-xs text-slate-600">
+      &copy; 2026 CustomBentoFactory.com (Naike Tableware Co., Ltd.). All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>
