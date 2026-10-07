@@ -88,6 +88,10 @@ description: 外贸B2B便当盒/餐具行业高转化独立站出海总控技能
 10. **自动化验证与发布候选门禁**：[10-automated-validation-release-gates.md](references/10-automated-validation-release-gates.md) *(融合)*
     - 发布前离线死链排查、Canonical 规范、Schema 校验、私有文件泄露扫描。
 
+11. **15 步全链路 SOP 与标准 Prompts 手册**：[11-master-sop-and-prompts-guide.md](references/11-master-sop-and-prompts-guide.md) *(核心总控)*
+    - 企业冷启动、双轨情报挖掘、标杆拆解、renwork-export-kb 21模块知识库构建、双引擎内容、海量发品全量 Prompt。
+
+
 ---
 
 ## 🛠️ 可执行辅助脚本与工具链

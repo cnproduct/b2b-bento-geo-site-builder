@@ -86,6 +86,8 @@ This skill includes 10 in-depth reference playbooks located in `references/`:
 | [`08-site-protection-security-shield.md`](references/08-site-protection-security-shield.md) | **Site Protection & Security Shield** | Private ledger isolation (403 on `/data/`), anti-iframe framing, honeypot traps. *(Fused)* |
 | [`09-design-math-container-loading-calculator.md`](references/09-design-math-container-loading-calculator.md) | **Design Math & Logistics Engine** | WCAG contrast, fluid typography CSS clamp, 20GP/40GP/40HQ packing math. *(Fused)* |
 | [`10-automated-validation-release-gates.md`](references/10-automated-validation-release-gates.md) | **Automated Validation Gates** | Pre-release offline audit: dead links, canonical tags, Schema syntax, private leak checks. *(Fused)* |
+| [`11-master-sop-and-prompts-guide.md`](references/11-master-sop-and-prompts-guide.md) | **15-Step Master SOP & Prompts** | End-to-end industrial execution guide & exact prompts for enterprise cold-start to GEO deployment. |
+
 
 ---
 
