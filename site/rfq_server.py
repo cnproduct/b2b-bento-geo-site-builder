@@ -222,6 +222,17 @@ class RFQHandler(http.server.BaseHTTPRequestHandler):
             for k, v in parsed_qs.items():
                 data[k] = v[0] if v else ''
 
+        # 0. Honeypot spam trap check (b2b-global-brand-site-master standard)
+        if data.get('website') or data.get('url'):
+            print(f"🛑 [Spam Bot Trapped] Honeypot triggered by {self.address_string()}")
+            self._set_cors_headers(200)
+            self.wfile.write(json.dumps({
+                "success": True,
+                "rfq_id": "CBF-TRAP",
+                "message": "Inquiry received."
+            }).encode('utf-8'))
+            return
+
         # 1. Verification code check
         captcha_answer = data.get('captcha_answer') or data.get('captcha') or ''
         captcha_token = data.get('captcha_token') or ''

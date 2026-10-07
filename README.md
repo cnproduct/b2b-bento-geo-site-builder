@@ -2,10 +2,11 @@
 
 [![Live Production Site](https://img.shields.io/badge/Live%20Site-custombentofactory.com-emerald.svg)](https://www.custombentofactory.com)
 [![Status](https://img.shields.io/badge/Production-Verified%20HTTP%2F2%20200-blue.svg)](https://www.custombentofactory.com/ai/summary.json)
+[![Fused Architecture](https://img.shields.io/badge/Architecture-b2b--global--brand--site--master%20v2.2-green.svg)](https://github.com/cnproduct/b2b-global-brand-site-master)
 [![Author](https://img.shields.io/badge/Author-Naike%20AI%20Team%20%26%20Antigravity-orange.svg)](https://github.com/cnproduct)
 [![License](https://img.shields.io/badge/License-MIT-purple.svg)](LICENSE)
 
-A complete, production-grade methodology and toolchain for building high-converting B2B factory export portals powered by dual **SEO** (Search Engine Optimization) and **GEO** (Generative Engine Optimization) architectures.
+A complete, production-grade methodology and toolchain for building high-converting B2B factory export portals powered by dual **SEO** (Search Engine Optimization) and **GEO** (Generative Engine Optimization) architectures, fused with the hardened site protection, mathematical typography, and container packing logistics of `b2b-global-brand-site-master`.
 
 This repository encapsulates the end-to-end success story, technical implementation, and troubleshooting playbook of [custombentofactory.com](https://www.custombentofactory.com), transforming raw factory capabilities into high-intent overseas B2B inquiries.
 
@@ -40,7 +41,20 @@ flowchart TD
         G4["/ai/vendor-comparison.json Audit Comparison Matrix"]
     end
 
-    subgraph Inquiries ["4. Global B2B Conversion"]
+    subgraph Logistics_Math ["4. Design Math & Logistics Engine"]
+        M1["WCAG 2.1 Contrast Ratio Math (CR >= 4.5:1)"]
+        M2["Fluid Typography CSS clamp() Interpolation"]
+        M3["20GP / 40GP / 40HQ Container Packing Estimator"]
+    end
+
+    subgraph Site_Shield ["5. Site Protection & Security Shield"]
+        P1["Private Inquiries Ledger Isolation (HTTP 403)"]
+        P2["Anti-Clickjacking Headers (X-Frame-Options)"]
+        P3["Honeypot Bot Trapping & HMAC Math Captcha"]
+        P4["Dual-Insurance Routing to info@naikegroup.com"]
+    end
+
+    subgraph Inquiries ["6. Global B2B Conversion"]
         Q1["US & EU Supermarket Private Label Buyers"]
         Q2["Amazon Top 100 Brand Sourcing Directors"]
         Q3["Corporate Promotional Gift Distributors"]
@@ -49,14 +63,16 @@ flowchart TD
 
     Market_Signals --> Dual_Engine
     Factory_Truth --> Dual_Engine
-    Dual_Engine --> Inquiries
+    Dual_Engine --> Logistics_Math
+    Logistics_Math --> Site_Shield
+    Site_Shield --> Inquiries
 ```
 
 ---
 
 ## 📚 Reference Documentation Index
 
-This skill includes 7 in-depth reference playbooks located in `references/`:
+This skill includes 10 in-depth reference playbooks located in `references/`:
 
 | File | Title | Key Contents |
 |---|---|---|
@@ -67,6 +83,9 @@ This skill includes 7 in-depth reference playbooks located in `references/`:
 | [`05-seo-geo-dual-engine-architecture.md`](references/05-seo-geo-dual-engine-architecture.md) | **Dual-Engine SEO & GEO** | Schema.org graphs, XML sitemaps, `/llms.txt`, and `/ai/*.json` endpoints for AI bots. |
 | [`06-toolchain-skills-knowledge-bases.md`](references/06-toolchain-skills-knowledge-bases.md) | **Toolchain, Skills & Prompts** | Google Imagen 3 RPC prompts, `b2b_portal_builder`, layout auditor, Nginx configs. |
 | [`07-pitfalls-troubleshooting-playbook.md`](references/07-pitfalls-troubleshooting-playbook.md) | **Pitfalls & Troubleshooting** | Gateway resets (Port 2222), macOS AppleDouble cleanup, JS multi-category space bug. |
+| [`08-site-protection-security-shield.md`](references/08-site-protection-security-shield.md) | **Site Protection & Security Shield** | Private ledger isolation (403 on `/data/`), anti-iframe framing, honeypot traps. *(Fused)* |
+| [`09-design-math-container-loading-calculator.md`](references/09-design-math-container-loading-calculator.md) | **Design Math & Logistics Engine** | WCAG contrast, fluid typography CSS clamp, 20GP/40GP/40HQ packing math. *(Fused)* |
+| [`10-automated-validation-release-gates.md`](references/10-automated-validation-release-gates.md) | **Automated Validation Gates** | Pre-release offline audit: dead links, canonical tags, Schema syntax, private leak checks. *(Fused)* |
 
 ---
 
@@ -85,29 +104,47 @@ The skill configures and deploys 21 production-grade SKUs across 8 high-velocity
 
 ---
 
-## 🛠️ Automated Scripts
+## 🛠️ Automated Scripts & Toolchain
 
-### 1. Verification Health Check (`scripts/verify_endpoints.py`)
+### 1. Design Math & Container Loading Calculator (`scripts/design_math.py`)
+```bash
+# Test contrast ratio against WCAG AA 4.5:1
+python3 scripts/design_math.py contrast '#112330' '#ffffff'
+
+# Generate fluid typography CSS clamp
+python3 scripts/design_math.py fluid 28 48 360 1440
+
+# Estimate 20GP/40GP/40HQ container loading capacity for bento box master cartons
+python3 scripts/design_math.py container --length 540 --width 380 --height 420 --weight 14.5 --pcs 24
+```
+
+### 2. Pre-Flight Site Validator (`scripts/validate_site.py`)
+Audits all HTML pages, Schema JSON-LD graphs, canonical tags, broken links, image alts, and verifies private file isolation:
+```bash
+python3 scripts/validate_site.py /path/to/site --domain https://www.custombentofactory.com
+```
+
+### 3. Verification Health Check (`scripts/verify_endpoints.py`)
 Validates all 25+ live endpoints over HTTP/2, checking headers, MIME types, and SSL certificates:
 ```bash
 python3 scripts/verify_endpoints.py --domain https://www.custombentofactory.com
 ```
 
-### 2. Machine-Readable Manifest Generator (`scripts/generate_llms_manifest.py`)
+### 4. Machine-Readable Manifest Generator (`scripts/generate_llms_manifest.py`)
 Compiles `/llms.txt`, `/ai/summary.json`, `/ai/faq.json`, and `/ai/vendor-comparison.json` automatically:
 ```bash
 python3 scripts/generate_llms_manifest.py --output-dir /path/to/website/root
 ```
 
-### 3. Standalone RFQ Backend Daemon (`scripts/rfq_server.py`)
-Production-tested Python HTTP daemon (port 8012) with HMAC math captcha, FormSubmit asynchronous email dispatch, disk ledger (`inquiries.json` & `.csv`), and admin inspection endpoint:
+### 5. Standalone RFQ Backend Daemon (`scripts/rfq_server.py`)
+Production-tested Python HTTP daemon (port 8012) with honeypot spam bot trapping, HMAC math captcha, FormSubmit asynchronous email dispatch, disk ledger (`inquiries.json` & `.csv`), and admin inspection endpoint:
 ```bash
 # Run standalone or manage via systemctl
 python3 scripts/rfq_server.py
 sudo systemctl status custombentofactory-rfq.service
 ```
 
-### 4. Remote Production Deployment (`scripts/deploy_remote.sh`)
+### 6. Remote Production Deployment (`scripts/deploy_remote.sh`)
 Packages assets without macOS AppleDouble clutter, uploads via SSH port 2222, unpacks, updates systemd RFQ service, and reloads Nginx:
 ```bash
 ./scripts/deploy_remote.sh
@@ -117,6 +154,7 @@ Packages assets without macOS AppleDouble clutter, uploads via SSH port 2222, un
 
 ## 📈 Conversion & Instant Lead Generation
 
+- **Dual-Insurance RFQ Engine**: All forms (Contact page, drawer cart, newsletter, titanium gifting quote, article sidebars) route directly to **`info@naikegroup.com`** with automatic failover fallback.
 - **Google Analytics 4**: Live measurement (`G-NJ3DKWY1LE`) tracking high-intent `generate_lead`, `click_whatsapp`, and `contact` events.
 - **WhatsApp Direct Engineering Desk**: Worldwide quick-dial E.164 links unified to **`+86 13599220505`** (`https://wa.me/8613599220505`).
 - **Aohea Benchmark**: Dedicated **Leakproof Engineering Lab** (`site/leakproof-lab.html`) featuring LSR overmolding, 2m drop tests, and -50kPa vacuum seal tests.

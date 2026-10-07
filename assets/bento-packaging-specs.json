@@ -1,0 +1,108 @@
+{
+  "industry": "Bento Lunch Boxes & Food Storage",
+  "factory": "Jinjiang Naike Gifts Co., Ltd. (Naike Tableware)",
+  "origin_port": "Xiamen Port (XMN), China",
+  "standard_container_specs": {
+    "20GP": {"cbm": 33.1, "max_payload_kg": 21800, "efficiency": 0.88},
+    "40GP": {"cbm": 67.5, "max_payload_kg": 26680, "efficiency": 0.88},
+    "40HQ": {"cbm": 76.2, "max_payload_kg": 26580, "efficiency": 0.88}
+  },
+  "skus": [
+    {
+      "sku": "NK-KB5-001",
+      "model": "Kids 5-Compartment Leakproof Bento Box",
+      "carton_l_mm": 540,
+      "carton_w_mm": 380,
+      "carton_h_mm": 420,
+      "carton_cbm": 0.0862,
+      "gross_weight_kg": 14.5,
+      "net_weight_kg": 13.2,
+      "pcs_per_carton": 24,
+      "container_capacity": {
+        "20GP": {"cartons": 337, "units": 8088},
+        "40GP": {"cartons": 689, "units": 16536},
+        "40HQ": {"cartons": 778, "units": 18672}
+      }
+    },
+    {
+      "sku": "NK-CHILL-002",
+      "model": "Chill Bento Box with Integrated Ice Pack",
+      "carton_l_mm": 520,
+      "carton_w_mm": 370,
+      "carton_h_mm": 440,
+      "carton_cbm": 0.0847,
+      "gross_weight_kg": 16.0,
+      "net_weight_kg": 14.8,
+      "pcs_per_carton": 20,
+      "container_capacity": {
+        "20GP": {"cartons": 343, "units": 6860},
+        "40GP": {"cartons": 701, "units": 14020},
+        "40HQ": {"cartons": 791, "units": 15820}
+      }
+    },
+    {
+      "sku": "NK-SS3-003",
+      "model": "304 Stainless Steel 3-Compartment Bento",
+      "carton_l_mm": 510,
+      "carton_w_mm": 360,
+      "carton_h_mm": 410,
+      "carton_cbm": 0.0753,
+      "gross_weight_kg": 15.2,
+      "net_weight_kg": 13.8,
+      "pcs_per_carton": 24,
+      "container_capacity": {
+        "20GP": {"cartons": 386, "units": 9264},
+        "40GP": {"cartons": 788, "units": 18912},
+        "40HQ": {"cartons": 890, "units": 21360}
+      }
+    },
+    {
+      "sku": "NK-TI-005",
+      "model": "Executive TA1 Pure Titanium Bento Suite",
+      "carton_l_mm": 480,
+      "carton_w_mm": 340,
+      "carton_h_mm": 390,
+      "carton_cbm": 0.0636,
+      "gross_weight_kg": 10.5,
+      "net_weight_kg": 9.2,
+      "pcs_per_carton": 16,
+      "container_capacity": {
+        "20GP": {"cartons": 457, "units": 7312},
+        "40GP": {"cartons": 933, "units": 14928},
+        "40HQ": {"cartons": 1054, "units": 16864}
+      }
+    },
+    {
+      "sku": "NK-WS-007",
+      "model": "Wheat Straw Bio-Composite Bento Box",
+      "carton_l_mm": 530,
+      "carton_w_mm": 370,
+      "carton_h_mm": 400,
+      "carton_cbm": 0.0784,
+      "gross_weight_kg": 13.8,
+      "net_weight_kg": 12.5,
+      "pcs_per_carton": 36,
+      "container_capacity": {
+        "20GP": {"cartons": 371, "units": 13356},
+        "40GP": {"cartons": 757, "units": 27252},
+        "40HQ": {"cartons": 855, "units": 30780}
+      }
+    },
+    {
+      "sku": "NK-SNK-014",
+      "model": "TikTok Viral 8-Compartment Snackle Box",
+      "carton_l_mm": 600,
+      "carton_w_mm": 410,
+      "carton_h_mm": 430,
+      "carton_cbm": 0.1058,
+      "gross_weight_kg": 15.6,
+      "net_weight_kg": 14.1,
+      "pcs_per_carton": 24,
+      "container_capacity": {
+        "20GP": {"cartons": 275, "units": 6600},
+        "40GP": {"cartons": 561, "units": 13464},
+        "40HQ": {"cartons": 633, "units": 15192}
+      }
+    }
+  ]
+}
