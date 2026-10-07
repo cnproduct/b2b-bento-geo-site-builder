@@ -89,7 +89,7 @@ description: 外贸B2B便当盒/餐具行业高转化独立站出海总控技能
 8. **全链路转化与商机留存中台**：
    - Google Analytics 4 (GA4 ID: `G-NJ3DKWY1LE`) 深度采购意向事件埋点（`generate_lead`, `click_whatsapp`, `contact`）；
    - 全局 WhatsApp 矩阵一键直达工程台（统一规范格式：`+86 13599220505`）；
-   - 自主可控 Python RFQ 服务端守护进程（`scripts/rfq_server.py`，端口 8012，带 HMAC 算术防刷验证码 `/api/captcha`，FormSubmit 异步双重邮件投递至 `info@naiketableware.com` 与 `cnproduct@gmail.com`，及本地 JSON/CSV 双账本安全留存）。
+   - 自主可控 Python RFQ 服务端守护进程（`scripts/rfq_server.py`，端口 8012，带 HMAC 算术防刷验证码 `/api/captcha`，FormSubmit 异步双重邮件投递至 `info@naikegroup.com` 与 `cnproduct@gmail.com`，及本地 JSON/CSV 双账本安全留存）。
 
 ---
 

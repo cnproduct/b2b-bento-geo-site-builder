@@ -1914,9 +1914,12 @@
           </p>
           
           <div class="footer-newsletter-box">
-            <h5>Get Wholesale Sourcing Updates</h5>
-            <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Thank you for subscribing! Our 2026 Sourcing Catalog has been sent to your email.');">
-              <input type="email" class="newsletter-input" placeholder="Enter corporate email..." required aria-label="Corporate Email Address">
+            <form class="newsletter-form" action="https://formsubmit.co/info@naikegroup.com" method="POST" onsubmit="handleNewsletterSubmit(event)">
+              <input type="hidden" name="_subject" value="[Custom Bento Factory] New Sourcing Catalog Newsletter Subscription">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://www.custombentofactory.com/?subscribed=1">
+              <input type="email" name="email" class="newsletter-input" placeholder="Enter corporate email..." required aria-label="Corporate Email Address">
               <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
           </div>
@@ -2021,7 +2024,11 @@
       </div>
     </div>
     <div class="drawer-footer">
-      <form id="drawerRfqForm" class="rfq-drawer-form" onsubmit="handleDrawerRfqSubmit(event)">
+      <form id="drawerRfqForm" class="rfq-drawer-form" action="https://formsubmit.co/info@naikegroup.com" method="POST" onsubmit="handleDrawerRfqSubmit(event)">
+        <input type="hidden" name="_subject" value="[Custom Bento Factory] New Drawer Sourcing RFQ">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://www.custombentofactory.com/?submitted=1">
         <div class="form-group">
           <label for="drawer_email">Work Corporate Email *</label>
           <input type="email" id="drawer_email" name="email" required placeholder="buyer@brand.com">

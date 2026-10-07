@@ -102,7 +102,11 @@
           <!-- Quick Inquiry Form Widget -->
           <div class="sidebar-widget">
             <h4>Quick Inquiry</h4>
-            <form id="inquiryForm" class="sidebar-inquiry-form">
+            <form id="inquiryForm" class="sidebar-inquiry-form" action="https://formsubmit.co/info@naikegroup.com" method="POST" onsubmit="handleSidebarInquirySubmit(event)">
+              <input type="hidden" name="_subject" value="[Custom Bento Factory] Article Sidebar Quick Inquiry">
+              <input type="hidden" name="_captcha" value="false">
+              <input type="hidden" name="_template" value="table">
+              <input type="hidden" name="_next" value="https://www.custombentofactory.com/contact.html?submitted=1">
               <div>
                 <label for="fullName">Your Name</label>
                 <input type="text" id="fullName" name="name" class="form-control" placeholder="John Doe" required>
@@ -113,13 +117,14 @@
               </div>
               <div>
                 <label for="emailAddr">Business Email</label>
-                <input type="email" id="emailAddr" name="email" class="form-control" placeholder="info@naikegroup.com" required>
+                <input type="email" id="emailAddr" name="email" class="form-control" placeholder="yourname@company.com" required>
               </div>
               <div>
                 <label for="message">Material Specs & Quantity</label>
                 <textarea id="message" name="message" class="form-control" placeholder="Target SKU, wheat straw ratio, custom pantone, packaging & MOQ requirements..." required></textarea>
               </div>
-              <button type="submit" class="btn btn-primary btn-sm" style="width:100%;">Send Quick Inquiry</button>
+              <div id="sidebarInquiryStatus" class="rfq-status-banner" style="display:none; font-size:0.8rem; padding:8px; margin-bottom:8px;"></div>
+              <button type="submit" id="sidebarInquiryBtn" class="btn btn-primary btn-sm" style="width:100%;">Send Quick Inquiry</button>
             </form>
           </div>
 

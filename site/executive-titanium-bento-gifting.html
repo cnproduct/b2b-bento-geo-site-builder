@@ -411,7 +411,11 @@
             <p>Tell us your target quantity and customization preferences. Our executive accounts team responds within 6 business hours with a formal PDF quote and 3D digital mockup.</p>
           </div>
 
-          <form class="quote-form-grid" action="mailto:info@naikegroup.com" method="post" enctype="text/plain">
+          <form id="titaniumQuoteForm" class="quote-form-grid" action="https://formsubmit.co/info@naikegroup.com" method="POST" onsubmit="handleTitaniumQuoteSubmit(event)">
+            <input type="hidden" name="_subject" value="[Custom Bento Factory] Executive Pure Titanium Bento Gifting RFQ">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.custombentofactory.com/executive-titanium-bento-gifting.html?submitted=1">
             <div class="form-group">
               <label for="corp-name">Your Full Name *</label>
               <input type="text" id="corp-name" name="name" required placeholder="e.g., Sarah Jenkins">
@@ -437,9 +441,10 @@
               <label for="corp-notes">Customization & Event Timeline Requirements</label>
               <textarea id="corp-notes" name="notes" rows="4" placeholder="Mention required in-hand delivery date, logo laser engraving preferences, color anodizing, or custom gift box sleeve requirements..."></textarea>
             </div>
+            <div id="titaniumStatusBanner" class="rfq-status-banner full-width" style="display:none; margin-bottom:12px; text-align:center;"></div>
             <div class="form-group full-width text-center">
-              <button type="submit" class="btn btn-gold btn-lg">Submit Corporate Inquiry (Direct Factory Response)</button>
-              <p class="form-disclaimer"><small>Your details remain strictly confidential. Disney FAMA Facility ID: W128-4829-1.</small></p>
+              <button type="submit" id="titaniumSubmitBtn" class="btn btn-gold btn-lg">Submit Corporate Inquiry (Direct Factory Response)</button>
+              <p class="form-disclaimer"><small>Your details remain strictly confidential. Sent directly to: info@naikegroup.com · Disney FAMA Facility ID: W128-4829-1.</small></p>
             </div>
           </form>
         </div>

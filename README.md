@@ -141,4 +141,4 @@ All endpoints are live and publicly queryable by LLMs and search crawlers:
 
 - **License**: MIT
 - **Maintained By**: Naike AI Innovation Team & Google Antigravity
-- **Inquiries**: export@naiketableware.com / custombentofactory.com
+- **Inquiries**: info@naikegroup.com / custombentofactory.com

@@ -399,12 +399,38 @@ window.handleDrawerRfqSubmit = function(e) {
     }
   })
   .catch(err => {
-    btn.disabled = false;
-    btn.innerHTML = '<span>⚡ Send Instant Factory RFQ</span>';
-    status.className = 'rfq-status-banner error';
-    status.textContent = 'Network error communicating with RFQ server. Please WhatsApp us at +86 135 9922 0505 directly.';
-    refreshDrawerCaptcha();
-  refreshContactCaptcha();
+    // Dual Insurance Fallback directly to FormSubmit (info@naikegroup.com)
+    const fallbackData = new FormData();
+    fallbackData.append('name', name || 'B2B Procurement Buyer');
+    fallbackData.append('email', email);
+    fallbackData.append('volume', volume || '1,000 pcs');
+    fallbackData.append('phone', phone || 'Not provided');
+    fallbackData.append('product', productDesc);
+    fallbackData.append('source_page', window.location.href);
+    fallbackData.append('_subject', '[Custom Bento Factory] Drawer RFQ Sourcing Inquiry (' + volume + ')');
+    fallbackData.append('_captcha', 'false');
+    fallbackData.append('_template', 'table');
+
+    fetch('https://formsubmit.co/ajax/info@naikegroup.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: fallbackData
+    }).then(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<span>⚡ Send Instant Factory RFQ</span>';
+      status.className = 'rfq-status-banner success';
+      status.style.display = 'block';
+      status.innerHTML = '<strong>✅ RFQ Transmitted to info@naikegroup.com</strong><br>Our engineering sales desk has received your requirements and will reply within 12 hours.';
+      form.reset();
+      refreshDrawerCaptcha();
+    }).catch(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<span>⚡ Send Instant Factory RFQ</span>';
+      status.className = 'rfq-status-banner error';
+      status.style.display = 'block';
+      status.innerHTML = 'Network notice: Please contact us directly via WhatsApp <a href="https://wa.me/8613599220505" style="color:#15803d; font-weight:700;">+86 135 9922 0505</a> or email <a href="mailto:info@naikegroup.com" style="color:#008290; font-weight:700;">info@naikegroup.com</a>.';
+      refreshDrawerCaptcha();
+    });
   });
 };
 
@@ -506,10 +532,219 @@ window.handleContactRfqSubmit = function(e) {
     }
   })
   .catch(err => {
-    btn.disabled = false;
-    btn.innerHTML = '<span>⚡ Submit Formal Sourcing RFQ &rarr;</span>';
-    status.className = 'rfq-status-banner error';
-    status.textContent = 'Network communication error. Please message us on WhatsApp (+86 135 9922 0505) or email info@naiketableware.com.';
-    refreshContactCaptcha();
+    // Dual Insurance Fallback directly to FormSubmit (info@naikegroup.com)
+    const fallbackData = new FormData();
+    fallbackData.append('name', name);
+    fallbackData.append('email', email);
+    fallbackData.append('company', company);
+    fallbackData.append('phone', phone || 'Not provided');
+    fallbackData.append('product', product);
+    fallbackData.append('volume', volume);
+    fallbackData.append('message', message);
+    fallbackData.append('source_page', window.location.href);
+    fallbackData.append('_subject', '[Custom Bento Factory] Contact Page RFQ - ' + product);
+    fallbackData.append('_captcha', 'false');
+    fallbackData.append('_template', 'table');
+
+    fetch('https://formsubmit.co/ajax/info@naikegroup.com', {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: fallbackData
+    }).then(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<span>⚡ Submit Formal Sourcing RFQ &rarr;</span>';
+      status.className = 'rfq-status-banner success';
+      status.style.display = 'block';
+      status.innerHTML = '<strong>✅ RFQ Transmitted to Factory Desk (info@naikegroup.com)</strong><br>Our engineering sales desk has received your requirements and will reply within 12 hours.<br><small style="margin-top:6px; display:inline-block;">Need instant reply? <a href="https://wa.me/8613599220505" target="_blank" style="color:#15803d; font-weight:700;">Ping us on WhatsApp &rarr;</a></small>';
+      form.reset();
+      refreshContactCaptcha();
+    }).catch(() => {
+      btn.disabled = false;
+      btn.innerHTML = '<span>⚡ Submit Formal Sourcing RFQ &rarr;</span>';
+      status.className = 'rfq-status-banner error';
+      status.style.display = 'block';
+      status.innerHTML = 'Network notice: Please WhatsApp us directly at <a href="https://wa.me/8613599220505" style="color:#15803d; font-weight:700;">+86 135 9922 0505</a> or email <a href="mailto:info@naikegroup.com" style="color:#008290; font-weight:700;">info@naikegroup.com</a>.';
+      refreshContactCaptcha();
+    });
   });
 };
+
+// 7. Footer Newsletter Subscription Controller
+window.handleNewsletterSubmit = function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const input = form.querySelector('input[name="email"]') || form.querySelector('.newsletter-input');
+  const btn = form.querySelector('button[type="submit"]') || form.querySelector('.newsletter-btn');
+  if (!input) return;
+  const email = input.value.trim();
+  if (!email || !email.includes('@')) return;
+
+  const originalBtnText = btn ? btn.textContent : 'Subscribe';
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Subscribing...';
+  }
+
+  // Dual dispatch: FormSubmit to info@naikegroup.com + /api/submit-rfq
+  const fd = new FormData();
+  fd.append('email', email);
+  fd.append('_subject', '[Custom Bento Factory] New Sourcing Catalog Newsletter Subscription');
+  fd.append('_captcha', 'false');
+  fd.append('_template', 'table');
+
+  fetch('/api/submit-rfq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: email,
+      name: 'Newsletter Subscriber',
+      company: 'Wholesale Catalog Subscriber',
+      product: '2026 Bento Sourcing Catalog Newsletter',
+      volume: 'Subscription',
+      message: 'Subscribed to 2026 Wholesale Sourcing Catalog updates',
+      source_page: window.location.href
+    })
+  }).catch(() => {});
+
+  fetch('https://formsubmit.co/ajax/info@naikegroup.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).then(() => {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Subscribed ✓';
+    }
+    alert('Thank you for subscribing! Our 2026 Sourcing Catalog and updates will be sent to ' + email + '.');
+    form.reset();
+  }).catch(() => {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = originalBtnText;
+    }
+    alert('Thank you for subscribing! Our 2026 Sourcing Catalog has been sent to your email.');
+    form.reset();
+  });
+};
+
+// 8. Executive Titanium Bento Corporate Gifting Form Controller
+window.handleTitaniumQuoteSubmit = function(e) {
+  e.preventDefault();
+  const form = document.getElementById('titaniumQuoteForm') || e.target;
+  const btn = document.getElementById('titaniumSubmitBtn');
+  const status = document.getElementById('titaniumStatusBanner');
+
+  const name = form.querySelector('[name="name"]')?.value || '';
+  const company = form.querySelector('[name="company"]')?.value || '';
+  const email = form.querySelector('[name="email"]')?.value || '';
+  const quantity = form.querySelector('[name="quantity"]')?.value || '';
+  const notes = form.querySelector('[name="notes"]')?.value || '';
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = '⏳ Transmitting Corporate RFQ to Factory...';
+  }
+  if (status) {
+    status.style.display = 'none';
+  }
+
+  // Local daemon logging
+  fetch('/api/submit-rfq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: name,
+      company: company,
+      email: email,
+      volume: quantity + ' Sets',
+      product: 'Executive TA1 Pure Titanium Bento Suite',
+      message: notes,
+      source_page: window.location.href
+    })
+  }).catch(() => {});
+
+  const fd = new FormData(form);
+  if (!fd.has('_subject')) fd.append('_subject', '[Custom Bento Factory] Executive Pure Titanium Bento Gifting RFQ');
+  if (!fd.has('_captcha')) fd.append('_captcha', 'false');
+  if (!fd.has('_template')) fd.append('_template', 'table');
+
+  fetch('https://formsubmit.co/ajax/info@naikegroup.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).then(() => {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Submit Corporate Inquiry (Direct Factory Response)';
+    }
+    if (status) {
+      status.className = 'rfq-status-banner success';
+      status.style.display = 'block';
+      status.innerHTML = '<strong>✅ Corporate RFQ Received</strong><br>Our executive accounts team at <strong>info@naikegroup.com</strong> has received your project details and will send a formal quote within 6 hours.';
+    }
+    form.reset();
+  }).catch(() => {
+    form.submit();
+  });
+};
+
+// 9. Article Sidebar Quick Inquiry Controller
+window.handleSidebarInquirySubmit = function(e) {
+  e.preventDefault();
+  const form = e.target;
+  const btn = form.querySelector('#sidebarInquiryBtn') || form.querySelector('button[type="submit"]');
+  const status = form.querySelector('#sidebarInquiryStatus') || form.querySelector('.rfq-status-banner');
+
+  const name = form.querySelector('[name="name"]')?.value || '';
+  const company = form.querySelector('[name="company"]')?.value || '';
+  const email = form.querySelector('[name="email"]')?.value || '';
+  const message = form.querySelector('[name="message"]')?.value || '';
+
+  if (btn) {
+    btn.disabled = true;
+    btn.textContent = 'Sending...';
+  }
+  if (status) {
+    status.style.display = 'none';
+  }
+
+  // Local daemon logging
+  fetch('/api/submit-rfq', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      name: name,
+      company: company,
+      email: email,
+      product: 'Article Quick Inquiry: ' + document.title,
+      volume: '1,000 pcs (Standard)',
+      message: message,
+      source_page: window.location.href
+    })
+  }).catch(() => {});
+
+  const fd = new FormData(form);
+  if (!fd.has('_subject')) fd.append('_subject', '[Custom Bento Factory] Article Sidebar Quick Inquiry');
+  if (!fd.has('_captcha')) fd.append('_captcha', 'false');
+  if (!fd.has('_template')) fd.append('_template', 'table');
+
+  fetch('https://formsubmit.co/ajax/info@naikegroup.com', {
+    method: 'POST',
+    headers: { 'Accept': 'application/json' },
+    body: fd
+  }).then(() => {
+    if (btn) {
+      btn.disabled = false;
+      btn.textContent = 'Send Quick Inquiry';
+    }
+    if (status) {
+      status.className = 'rfq-status-banner success';
+      status.style.display = 'block';
+      status.innerHTML = '<strong>✅ Inquiry Received</strong><br>Transmitted to <strong>info@naikegroup.com</strong>. We will reply within 12 hours.';
+    }
+    form.reset();
+  }).catch(() => {
+    form.submit();
+  });
+};
+

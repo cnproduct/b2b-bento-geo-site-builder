@@ -87,7 +87,11 @@
       <div style="background:#ffffff; border:1px solid #e2e8f0; border-radius:24px; padding:36px; box-shadow:0 12px 32px rgba(0,0,0,0.06);">
         <h3 style="font-size:1.4rem; font-weight:800; color:#112330; margin-bottom:20px;">Request Wholesale Quote or Sample</h3>
         
-        <form id="contactRfqForm" onsubmit="handleContactRfqSubmit(event)" style="display:flex; flex-direction:column; gap:16px;">
+        <form id="contactRfqForm" action="https://formsubmit.co/info@naikegroup.com" method="POST" onsubmit="handleContactRfqSubmit(event)" style="display:flex; flex-direction:column; gap:16px;">
+          <input type="hidden" name="_subject" value="[Custom Bento Factory] New Sourcing RFQ from contact.html">
+          <input type="hidden" name="_captcha" value="false">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://www.custombentofactory.com/contact.html?submitted=1">
           <div style="display:grid; grid-template-columns: 1fr 1fr; gap:16px;">
             <div>
               <label for="contact_name" style="font-size:0.82rem; font-weight:700; color:#112330; display:block; margin-bottom:6px;">Your Name *</label>
